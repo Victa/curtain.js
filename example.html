@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <title>Sliding Pannels example</title>
+    <link rel="stylesheet" href="base.css">
+</head>
+<body>
+
+<ul class="menu">
+    <li><a href="#one">One</a></li>
+    <li><a href="#two">Two</a></li>
+    <li><a href="#three">Three</a></li>
+    <li><a href="#four">Four</a></li>
+    <li><a href="#five">Five</a></li>
+    <li><a href="#six">Six</a></li>    
+</ul>
+
+<ol class="slidingpannels">
+    <li id="one">
+        <div class="img-wrapper">
+            <img src="img/pic1.jpeg" /> 
+        </div>
+    </li>
+    <li id="two">
+
+    </li>
+    <li id="three">
+        <div class="img-wrapper">
+            <img src="img/pic3.png" /> 
+        </div>
+    </li>
+    <li id="four">
+        <div class="img-wrapper">
+            <img src="img/pic1.jpeg" /> 
+        </div>
+    </li>
+    <li id="five">
+        <div class="img-wrapper">
+            <img src="img/pic2.jpeg" /> 
+        </div>
+    </li>
+    <li id="six">
+        <div class="img-wrapper">
+            <img src="img/pic3.png" /> 
+        </div>
+    </li>
+</ol>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="jquery.slidingpannels.js"></script>
+<script>
+    $(function(){
+       $('.slidingpannels').slidingpannels({
+           scrollSpeed: 600
+       }); 
+       $('.menu').find('a').on('click', function(e){
+           e.preventDefault();
+           window.location.hash = $(this).attr('href');
+       });
+    });
+</script>
+</body>
+</html>
