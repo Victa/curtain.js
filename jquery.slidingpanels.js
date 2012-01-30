@@ -40,11 +40,11 @@
         $(window).load(function(){
             // When all image is loaded
             self.setDimensions();
+            self.setEvents();
+            self.setLinks();
+            self.isHashIsOnList(location.hash.substring(1));
         });
-
-        this.setEvents();
-        this.setLinks();
-        this.isHashIsOnList(location.hash.substring(1));
+        
     };
 
     // Events
@@ -96,13 +96,14 @@
 
             if($fixed.length){
                 var dataTop = parseInt($fixed.attr('data-top'), 10);
-                if((docTop-currentP+windowHeight) >= currentHeight){
+                if((docTop-currentP+windowHeight) >= currentHeight && $fixed.css('position') === 'fixed'){
+                    console.log($fixed.css('position'));
                     var newTop = docTop-currentP + dataTop;
                     $fixed.css({
                         position: 'absolute',
                         top: Math.abs(newTop)
                     });
-                } else {
+                } else if((docTop-currentP+windowHeight) <= currentHeight && $fixed.css('position') === 'absolute'){
                     $fixed.css({
                         position: 'fixed',
                         top: dataTop
