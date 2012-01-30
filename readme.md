@@ -15,7 +15,49 @@ Feel free to fork the project on github or ping me on [twitter](http://twitter.c
 Documentation
 -------------
 
-Soon
+### Basic Usage
+
+Usage is very straightforward, simply include sliding.js file in the page, along with jQuery.
+
+  <script src="js/libs/jquery.js"></script>  
+  <script src="js/libs/sliding.js"></script>
+Then call ``$('.slidingpanels').sliding();`` to launch the plugin. You can add a set of optional options.
+
+### Options
+
+Valid options for sliding.js are:
+
+``scrollSpeed`` - Adjust the scroll speed (default ``400``)
+
+### Example
+
+Setup the correct element structure:
+
+  <ol class="yourpanelslist">
+      <li id="myfirstid" class="cover"> 
+          your content
+      </li>
+      <li id="mysecondid">
+           <div class="fixed"> <!-- if you need a "fixed" content -->
+              a fixed content
+          </div>
+          ...
+      </li>
+      <li id="coolid" class="cover">
+          ...
+      </li>
+      <li id="anotherid">
+          ...
+      </li>
+  </ol>
+  
+Then, you can launch the plugin:
+
+  $(function () {
+      $('.yourpanelslist').sliding({
+          scrollSpeed: 600
+      });
+  });
 
 
 Credits
