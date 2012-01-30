@@ -1,4 +1,4 @@
-WIP - jQuery Fixed Sliding Panels plugin
+Sliding.js
 ========================================
 
 **Please be lenient. I'm currently working on the plugin.**
