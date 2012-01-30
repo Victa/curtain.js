@@ -7,7 +7,7 @@ Live Example : http://lab.victorcoulon.fr/javascript/sliding.js/example/
 
 This plugin allows you to create a web page with multiple fixed panels that unroll with an amusing effect. You can use the keyboard instead the scroll to navigate.
 
-I made this plugin for the new website of my friend [Etienne Ledemay](http://artographik.fr/).
+I made this plugin for the upcomming website of my friend [Etienne Ledemay](http://artographik.fr/).
 And as youp probably noticed, the effect is extensively inspired by the awesome website [Edits Quarterly](http://artographik.fr/).
 
 Feel free to fork the project on github or ping me on [twitter](http://twitter.com/_victa) for any comments.
@@ -22,13 +22,18 @@ Usage is very straightforward, simply include sliding.js file in the page, along
     <script src="js/libs/jquery.js"></script>  
     <script src="js/libs/sliding.js"></script>
 
+And don't forget to add the base stylesheet
+
+    <link rel="stylesheet" href="sliding.css">
+
 Then call ``$('.slidingpanels').sliding();`` to launch the plugin. You can add a set of optional options.
 
 ### Options
 
 Valid options for sliding.js are:
 
-``scrollSpeed`` - Adjust the scroll speed (default ``400``)
+* ``scrollSpeed`` - Adjust the scroll speed (default ``400``)
+* More comming soon...
 
 ### Example
 
@@ -68,7 +73,7 @@ Credits
 [Victor Coulon](http://victorcoulon.fr) or ping me on twitter http://twitter.com/_victa
 
 ### Inspiration
-Inspired by http://editsquarterly.com/
+http://editsquarterly.com/
 
 ### Licence
 Licence MIT
