@@ -1,4 +1,4 @@
-WORK IN PROGRESS - jQuery Fixed Sliding Pannel plugin
+WORK IN PROGRESS - jQuery Fixed Sliding Panels plugin
 ====================================
 
 Inspired by http://editsquarterly.com/
