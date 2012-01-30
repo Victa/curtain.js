@@ -19,8 +19,9 @@ Documentation
 
 Usage is very straightforward, simply include sliding.js file in the page, along with jQuery.
 
-  <script src="js/libs/jquery.js"></script>  
-  <script src="js/libs/sliding.js"></script>
+    <script src="js/libs/jquery.js"></script>  
+    <script src="js/libs/sliding.js"></script>
+
 Then call ``$('.slidingpanels').sliding();`` to launch the plugin. You can add a set of optional options.
 
 ### Options
