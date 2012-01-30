@@ -1,86 +1,135 @@
 <!doctype html>
 <html>
 <head>
-    <title>Sliding Panels example</title>
+    <title>Sliding.js</title>
     <link rel="stylesheet" href="base.css">
-    <link rel="stylesheet" href="../jquery.slidingpanels.css">
+    <link rel="stylesheet" href="../sliding.css">
 </head>
 <body>
 
 
 <ul class="menu">
-    <li><a href="#one">One</a></li>
-    <li><a href="#two">Two</a></li>
-    <li><a href="#three">Three</a></li>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#instructions">Instructions</a></li>
+    <li><a href="#fixed">fixed content</a></li>
     <li><a href="#four">Four</a></li>
-    <li><a href="#five">Five</a></li>
+    <li><a href="#long">long content</a></li>
     <li><a href="#six">Six</a></li>    
 </ul>
 
 <ol class="slidingpanels">
-    <li id="one" class="cover">
+    <li id="intro" class="cover">
         
         <!-- Fork me on github - Ribbon -->
-        <a href="https://github.com/Victa/jQuery-fixed-sliding-pannels"><img style="position: absolute; top: 0; left: 0; border: 0;z-index:2;" src="https://a248.e.akamai.net/assets.github.com/img/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
+        <a href="https://github.com/Victa/sliding.js"><img style="position: absolute; top: 0; left: 0; border: 0;z-index:2;" src="https://a248.e.akamai.net/assets.github.com/img/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
 
-        <div class="presentation">
-            <h1>Fixed Sliding Panels</h1>
-            <h2>a jQuery plugin by <a href="http://victorcoulon.fr">Victor Coulon</a></h2>
+        <div class="presentation-wrapper">
+            <h1>Sliding.js</h1>
+            <h3>a jQuery plugin by <a href="http://victorcoulon.fr">Victor Coulon</a></h3>
             <p>
                 This plugin allows you to create a web page with multiple fixed panels that unroll with an amusing effect.
                 You can use the keyboard instead the scroll to navigate.<br><br>
-                I made this plugin for the new website of my friend <a href="http://artographik.fr/">Etienne</a>. 
-                That's why all the illustrations on this page come from him.<br> 
+                I made this plugin for the new website of my friend <a href="http://artographik.fr/">Etienne</a>.<br>
                 And as youp probably noticed, the effect is extensively inspired by the awesome website
                 <a href="http://editsquarterly.com/">Edits Quarterly</a>.<br><br>
-                Feel free to fork the project on <a href="https://github.com/Victa/jQuery-fixed-sliding-pannels">github</a>
+                Feel free to fork the project on <a href="https://github.com/Victa/sliding.js">github</a>
                 or ping me on <a href="http://twitter.com/_victa">twitter</a> for any comments.
                 <em>Please be lenient. I'm currently working on the plugin.</em>
             </p>
         </div>
 
     </li>
-    <li id="two" class="cover">
-         <div class="img-wrapper">
-            <img src="img/pic2.jpeg" /> 
+    <li id="instructions">
+         <div class="documentation-wrapper">
+            <h2>Basic Usage</h2>
+            <p>Usage is very straightforward, simply include sliding.js file in the page, along with jQuery.</p>
+<pre>&lt;script src="js/libs/jquery.js"&gt;&lt;/script&gt;  
+&lt;script src="js/libs/sliding.js"&gt;&lt;/script&gt;</pre>
+            <p>Then call <code>$('.slidingpanels').sliding();</code> to launch the plugin. You can add a set of optional options.</p>
+            <h2>Options</h2>
+            <p>Valid options for sliding.js are:</p>
+            <ul>
+                <li>scrollSpeed - Adjust the scroll speed (default <code>400</code>)</li>
+            </ul>
+            <h2>Example</h2>
+            <p>Setup the correct element structure:</p>
+<pre>&lt;ol class="yourpanelslist"&gt;
+    &lt;li id="myfirstid" class="cover"&gt; 
+        your content
+    &lt;/li&gt;
+    &lt;li id="mysecondid"&gt;
+         &lt;div class="fixed"&gt; &lt;!-- if you need a "fixed" content --&gt;
+            a fixed content
+        &lt;/div&gt;
+        ...
+    &lt;/li&gt;
+    &lt;li id="coolid" class="cover"&gt;
+        ...
+    &lt;/li&gt;
+    &lt;li id="anotherid"&gt;
+        ...
+    &lt;/li&gt;
+&lt;/ol&gt;</pre>
+<p>Then, you can launch the plugin:</p>
+<pre>$(function () {
+    $('.yourpanelslist').sliding({
+        scrollSpeed: 600
+    });
+});
+</pre>
         </div>
     </li>
-    <li id="three">
+    <li id="fixed">
         <div class="fixed">
             <h1>A fixed content</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
         </div>
         <div class="content-wrapper">
-            <img src="img/pic1.jpeg" /> 
-            <img src="img/pic2.jpeg" /> 
-            <img src="img/pic1.jpeg" /> 
-            <img src="img/pic2.jpeg" /> 
-            <img src="img/pic1.jpeg" /> 
+            <ul class="img-list">
+                <li><img src="img/1.jpeg" alt=""></li>
+                <li><img src="img/2.jpeg" alt=""></li>
+                <li><img src="img/3.jpeg" alt=""></li>
+                <li><img src="img/4.jpeg" alt=""></li>
+            </ul>
         </div>
     </li>
     <li id="four" class="cover">
-        <div class="img-wrapper">
-            <img src="img/pic1.jpeg" /> 
+        <div class="number-wrapper">
+            4
         </div>
     </li>
-    <li id="five" class="cover">
-        <div class="img-wrapper">
-            <img src="img/pic2.jpeg" /> 
+    <li id="long">
+        <div class="long-wrapper">
+            a<br>
+            <br>
+            l<br>
+            o<br>
+            o<br>
+            o<br>
+            o<br>
+            o<br>
+            o<br>
+            o<br>
+            o<br>
+            n<br>
+            g<br>
+            <br>
+            panel
         </div>
     </li>
     <li id="six" class="cover">
-        <div class="img-wrapper">
-            <img src="img/pic3.png" /> 
+        <div class="number-wrapper">
+            6
         </div>
     </li>
 </ol>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="../jquery.slidingpanels.js"></script>
+<script src="../sliding.js"></script>
 <script>
     $(function(){
-       $('.slidingpanels').slidingpanels({
+       $('.slidingpanels').sliding({
            scrollSpeed: 600           
        }); 
        $('.menu').find('a').on('click', function(e){

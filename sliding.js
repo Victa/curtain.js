@@ -8,7 +8,7 @@
 
 (function ( $, window, document, undefined ) {
 
-    var pluginName = 'slidingpanels',
+    var pluginName = 'sliding',
         defaults = {
             bodyHeight: 0,
             scrollSpeed: 400,
@@ -21,6 +21,8 @@
         this.element = element;
         this.options = $.extend( {}, defaults, options) ;
 
+        this.didScroll = false;
+
         this._defaults = defaults;
         this._name = pluginName;
 
@@ -29,17 +31,20 @@
 
     Plugin.prototype.init = function () {
         var self = this;
-        $.MobileWebkit = ($('body').hasClass('webkit-mobile') || (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i)));
+
         $.MobileDevice = ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i)));
         $.Tablet = ((navigator.userAgent.match(/iPad/i)));
 
-        if($.MobileDevice || $.Tablet || $.MobileWebkit){
+        if($.Tablet || $.MobileWebkit){
             this.options.mobile = true;
             $(this.element).find('>li').css({position:'relative'});
         }
         $(window).load(function(){
             // When all image is loaded
             self.setDimensions();
+            $(self.element).find('>li').eq(0).addClass('current')
+                .next().nextAll().css({display:'none'});
+                
             self.setEvents();
             self.setLinks();
             self.isHashIsOnList(location.hash.substring(1));
@@ -80,42 +85,49 @@
     
 
     Plugin.prototype.scrollEvent = function() {
-        var docTop = $(document).scrollTop(),
-            $current = $(this.element).find('.current'),
-            $fixed = $current.find('.fixed'),
-            currentP = parseInt($current.attr('data-position'), 10),
-            currentHeight = parseInt($current.attr('data-height'), 10),
-            windowHeight = $(window).height();
+        var self = this;
+        setInterval(function() {
+            if ( self.didScroll ) {
+                self.didScroll = false;
+                // self your page position and then
+                // Load in more results
+            
+                var docTop = $(document).scrollTop(),
+                    $current = $(self.element).find('.current'),
+                    $fixed = $current.find('.fixed'),
+                    currentP = parseInt($current.attr('data-position'), 10),
+                    currentHeight = parseInt($current.attr('data-height'), 10),
+                    windowHeight = $(window).height();
 
-        if(docTop < currentP && $current.index() > 0){
-            $current.removeClass('current').css({marginTop: 0})
-                    .nextAll().css({display:'none'}).end()
-                    .prev().addClass('current').css({display:'block'});
-        } else if(docTop < (currentP + $current.height())){
-            $current.css({marginTop:-(docTop-currentP)});
+                if(docTop < currentP && $current.index() > 0){
+                    $current.removeClass('current').css({marginTop: 0})
+                            .nextAll().css({display:'none'}).end()
+                            .prev().addClass('current').css({display:'block'});
+                } else if(docTop < (currentP + $current.height())){
+                    $current.css({marginTop:-(docTop-currentP)});
 
-            if($fixed.length){
-                var dataTop = parseInt($fixed.attr('data-top'), 10);
-                if((docTop-currentP+windowHeight) >= currentHeight && $fixed.css('position') === 'fixed'){
-                    console.log($fixed.css('position'));
-                    var newTop = docTop-currentP + dataTop;
-                    $fixed.css({
-                        position: 'absolute',
-                        top: Math.abs(newTop)
-                    });
-                } else if((docTop-currentP+windowHeight) <= currentHeight && $fixed.css('position') === 'absolute'){
-                    $fixed.css({
-                        position: 'fixed',
-                        top: dataTop
-                    });
+                    if($fixed.length){
+                        var dataTop = parseInt($fixed.attr('data-top'), 10);
+                        if((docTop-currentP+windowHeight) >= currentHeight && $fixed.css('position') === 'fixed'){
+                            $fixed.css({
+                                position: 'absolute',
+                                top: Math.abs(docTop-currentP + dataTop)
+                            });
+                        } else if((docTop-currentP+windowHeight) <= currentHeight && $fixed.css('position') === 'absolute'){
+                            $fixed.css({
+                                position: 'fixed',
+                                top: dataTop
+                            });
+                        }
+                    }
+
+                } else {
+                    $current.removeClass('current')
+                            .css({display:'none'})
+                            .next().addClass('current').nextAll().css({display:'block'});
                 }
             }
-
-        } else {
-            $current.removeClass('current')
-                    .css({display:'none'})
-                    .next().addClass('current').nextAll().css({display:'block'});
-        }
+        }, 10);
     };
     
     // Setters
@@ -146,10 +158,7 @@
                 $self.find('.fixed').attr('data-top', top);
             }
 
-            if(index===0) {
-                $self.addClass('current');
-                $self.next().nextAll().css({display:'none'});
-            }
+
 
         });
 
@@ -161,7 +170,8 @@
         $(window).resize(function(){
             self.setDimensions();
         });
-        $(document).scroll(function(){
+        $(window).scroll(function(){
+            self.didScroll = true;
             if(!self.options.mobile)
                 self.scrollEvent();
         });

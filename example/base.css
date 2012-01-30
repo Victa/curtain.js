@@ -9,20 +9,32 @@ a{color:#AAA;}
 a:hover{color:#CCC}
 img{max-width:100%;}
 h1{font-size:28px;}
-h2{font-size:18px;margin-bottom:12px;}
+h2{font-size:22px;margin-bottom:12px;}
+p{margin-bottom:12px;}
+pre{display:block;margin-bottom:12px;background-color: #F8F8F8;border: 1px solid #CCC;font-size: 13px;line-height: 19px;
+    overflow: auto;padding: 6px 10px;border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;}
+pre,code{color:#666;font-family: "Andale Mono", AndaleMono, monospace;font-size:12px;}
+h3{font-size:14px;margin-bottom:12px;}
 em{font-style:italic;}
+
 /* Sliding panels */
-.slidingpanels>li{box-shadow: 0 0 1px #111;}
+.slidingpanels>li{box-shadow: 0 1px 4px #444;}
 .slidingpanels>li:nth-child(2n+1){background:#EEE;}
 
 .fixed{position:fixed;top:150px;left:40px;width:200px;}
-.content-wrapper{margin:100px 0 0 300px;}
+.content-wrapper{margin:100px 0 100px 300px;}
 
-.img-wrapper{   position:absolute;width:400px;left:50%;margin-left:-200px;top:10%;bottom:10%;}
+.number-wrapper{position:absolute;font-size:126px;width:63px;height:151px;top:50%;left:50%;margin-left:-31px;margin-top:-75px;}
+.long-wrapper{text-align:center;margin:130px 0;text-transform:uppercase;font-size:76px;}
+.img-list li{display:block;margin:0 20px 20px;}
 
 /* Plugin Presentation */
-.presentation {width:400px;height:314px;position:absolute;top:50%;left:50%;margin-top:-157px;margin-left:-200px;}
-.presentation em {display:block;margin-top:14px;color:#999}
+.presentation-wrapper {width:400px;height:314px;position:absolute;top:50%;left:50%;margin-top:-157px;margin-left:-200px;}
+.presentation-wrapper em {display:block;margin-top:14px;color:#999}
+
+/* Plugin instruction */
+.documentation-wrapper{ width:600px;margin:100px auto;}
+.documentation-wrapper ul {list-style-type:square;margin-left:40px;margin-bottom:12px;}
 
 /* right menu */
 .menu{z-index:2;position:fixed;top:50%;margin-top:-60px;text-align:right;right:30px;}
