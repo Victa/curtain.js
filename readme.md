@@ -33,31 +33,31 @@ Valid options for sliding.js are:
 
 Setup the correct element structure:
 
-  <ol class="yourpanelslist">
-      <li id="myfirstid" class="cover"> 
-          your content
-      </li>
-      <li id="mysecondid">
-           <div class="fixed"> <!-- if you need a "fixed" content -->
-              a fixed content
-          </div>
-          ...
-      </li>
-      <li id="coolid" class="cover">
-          ...
-      </li>
-      <li id="anotherid">
-          ...
-      </li>
-  </ol>
+    <ol class="yourpanelslist">
+        <li id="myfirstid" class="cover"> 
+            your content
+        </li>
+        <li id="mysecondid">
+             <div class="fixed"> <!-- if you need a "fixed" content -->
+                a fixed content
+            </div>
+            ...
+        </li>
+        <li id="coolid" class="cover">
+            ...
+        </li>
+        <li id="anotherid">
+            ...
+        </li>
+    </ol>
   
 Then, you can launch the plugin:
 
-  $(function () {
-      $('.yourpanelslist').sliding({
-          scrollSpeed: 600
-      });
-  });
+    $(function () {
+        $('.yourpanelslist').sliding({
+            scrollSpeed: 600
+        });
+    }); 
 
 
 Credits
