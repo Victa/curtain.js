@@ -3,7 +3,7 @@ WIP - jQuery Fixed Sliding Panels plugin
 
 **Please be lenient. I'm currently working on the plugin.**
 
-Live Example : http://lab.victorcoulon.fr/javascript/slidingpannels/example.html
+Live Example : http://lab.victorcoulon.fr/javascript/slidingpanels/jQuery-fixed-sliding-pannels/example/example.html
 
 Documentation
 -------------
