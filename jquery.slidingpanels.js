@@ -1,4 +1,4 @@
-/*  jQuery : sliding pannels
+/*  jQuery : sliding panels
     Inspired by http://editsquarterly.com/
 
     Author : Victor Coulon (http://victorcoulon.fr)
@@ -8,7 +8,7 @@
 
 (function ( $, window, document, undefined ) {
 
-    var pluginName = 'slidingpannels',
+    var pluginName = 'slidingpanels',
         defaults = {
             bodyHeight: 0,
             scrollSpeed: 400,
