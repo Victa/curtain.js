@@ -1,0 +1,23 @@
+html{
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.slidingpanels{
+    width: 100%;
+    z-index:1;
+    position:relative;
+}
+
+.slidingpanels>li{
+    background: white;
+    position: fixed;
+    display:block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    z-index: 99999;
+}
+
+

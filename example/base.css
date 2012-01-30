@@ -1,0 +1,28 @@
+/* RESET */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+
+/* Example Specific css code  */
+/* Base Code */
+body{font:16px/1.2 "Gill Sans", "Gill Sans MT", Calibri, sans-serif;color:#444;}
+a{color:#AAA;}
+a:hover{color:#CCC}
+img{max-width:100%;}
+h1{font-size:28px;}
+h2{font-size:18px;margin-bottom:12px;}
+em{font-style:italic;}
+/* Sliding panels */
+.slidingpanels>li{box-shadow: 0 0 1px #111;}
+.slidingpanels>li:nth-child(2n+1){background:#EEE;}
+
+.fixed{position:fixed;top:150px;left:40px;width:200px;}
+.content-wrapper{margin:100px 0 0 300px;}
+
+.img-wrapper{   position:absolute;width:400px;left:50%;margin-left:-200px;top:10%;bottom:10%;}
+
+/* Plugin Presentation */
+.presentation {width:400px;height:314px;position:absolute;top:50%;left:50%;margin-top:-157px;margin-left:-200px;}
+.presentation em {display:block;margin-top:14px;color:#999}
+
+/* right menu */
+.menu{z-index:2;position:fixed;top:50%;margin-top:-60px;text-align:right;right:30px;}

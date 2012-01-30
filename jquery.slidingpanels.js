@@ -34,71 +34,16 @@
 
         if($.MobileDevice || $.Tablet || $.MobileWebkit){
             this.options.mobile = true;
-            $(this.element).find('li').css({position:'relative'});
+            $(this.element).find('>li').css({position:'relative'});
         }
 
         this.setDimensions();
         this.setEvents();
         this.setLinks();
-    };
-    
-    Plugin.prototype.setDimensions = function(){
-        var windowHeight = $(window).height(),
-            zIndex = 999,
-            i = 0;
-        $(this.element).find('li').each(function(index) {
-            $(this).css({
-                   height: windowHeight,
-                   zIndex: zIndex
-                })
-                .attr('data-height',windowHeight)
-                .attr('data-position',windowHeight*i);
-            
-            if(i===0){
-                $(this).addClass('current');
-            }
-
-            zIndex--;
-            i++;
-        });
-
-        this.setBodyHeight();
+        this.isHashIsOnList(location.hash.substring(1));
     };
 
-    Plugin.prototype.setEvents = function() {
-        var self = this;
-        $(window).resize(function(){
-            self.setDimensions();
-        });
-        $(document).scroll(function(){
-            if(!self.options.mobile)
-                self.scrollEvent();
-        });
-        $(document).keydown(function(e){
-            if(e.keyCode === 38 || e.keyCode === 37) {
-               self.scrollToPosition('up');
-            }
-            if(e.keyCode === 40 || e.keyCode === 39){
-                self.scrollToPosition('down');
-            }
-        });
-        if ("onhashchange" in window) {
-            window.addEventListener("hashchange", function(){
-                self.isHashIsOnList(location.hash.substring(1));
-            }, false);
-        }
-    };
-
-    Plugin.prototype.isHashIsOnList = function(hash){
-        var self = this;
-        $.each(self.options.linksArray, function(i,val){
-            if(val === hash){
-                self.scrollToPosition(hash);
-                return false;
-            }
-        });
-    };
-
+    // Events
     Plugin.prototype.scrollToPosition = function (direction){
         var position = null;
 
@@ -128,37 +73,127 @@
         return false;
     };
 
+    
+
+    Plugin.prototype.scrollEvent = function() {
+        var docTop = $(document).scrollTop(),
+            $current = $(this.element).find('.current'),
+            $fixed = $current.find('.fixed'),
+            currentP = parseInt($current.attr('data-position'), 10),
+            currentHeight = parseInt($current.attr('data-height'), 10),
+            windowHeight = $(window).height();
+
+        if(docTop < currentP && $current.index() > 0){
+            $current.removeClass('current').css({marginTop: 0})
+                    .nextAll().css({display:'none'}).end()
+                    .prev().addClass('current').css({display:'block'});
+        } else if(docTop < (currentP + $current.height())){
+            $current.css({marginTop:-(docTop-currentP)});
+
+            if($fixed.length){
+                var dataTop = parseInt($fixed.attr('data-top'), 10);
+                if((docTop-currentP+windowHeight) >= currentHeight){
+                    var newTop = docTop-currentP + dataTop;
+                    $fixed.css({
+                        position: 'absolute',
+                        top: Math.abs(newTop)
+                    });
+                } else {
+                    $fixed.css({
+                        position: 'fixed',
+                        top: dataTop
+                    });
+                }
+            }
+
+        } else {
+            $current.removeClass('current')
+                    .css({display:'none'})
+                    .next().addClass('current').nextAll().css({display:'block'});
+        }
+    };
+    
+    // Setters
+    Plugin.prototype.setDimensions = function(){
+        var windowHeight = $(window).height(),
+            levelHeight = 0,
+            cover = false;
+
+        $(this.element).find('>li').each(function(index) {
+            var $self = $(this);
+            cover = $self.hasClass('cover');
+
+            if(cover){
+                $self.css({height: windowHeight, zIndex: 999-index})
+                    .attr('data-height',windowHeight)
+                    .attr('data-position',levelHeight);
+                levelHeight += windowHeight;
+            } else{
+                var height = ($self.outerHeight() <= windowHeight) ? windowHeight : $self.outerHeight();
+                $self.css({minHeight: height, zIndex: 999-index})
+                    .attr('data-height',height)
+                    .attr('data-position',levelHeight);
+                levelHeight += height;
+            }
+
+            if($self.find('.fixed').length){
+                var top = $self.find('.fixed').css('top');
+                $self.find('.fixed').attr('data-top', top);
+            }
+
+            if(index===0) {
+                $self.addClass('current');
+                $self.next().nextAll().css({display:'none'});
+            }
+
+        });
+
+        this.setBodyHeight();
+    };
+
+    Plugin.prototype.setEvents = function() {
+        var self = this;
+        $(window).resize(function(){
+            self.setDimensions();
+        });
+        $(document).scroll(function(){
+            if(!self.options.mobile)
+                self.scrollEvent();
+        });
+        $(document).keydown(function(e){
+            if(e.keyCode === 38 || e.keyCode === 37) {
+               self.scrollToPosition('up');
+            }
+            if(e.keyCode === 40 || e.keyCode === 39){
+                self.scrollToPosition('down');
+            }
+        });
+        if ("onhashchange" in window) {
+            window.addEventListener("hashchange", function(){
+                self.isHashIsOnList(location.hash.substring(1));
+            }, false);
+        }
+    };
+
     Plugin.prototype.setBodyHeight = function(){
         var h = 0;
-        $(this.element).find('li').each(function() {
+        $(this.element).find('>li').each(function() {
            h += $(this).height();
         });
         this.options.bodyHeight = h;
         $('body').height(h);
     };
 
-    Plugin.prototype.scrollEvent = function() {
-        var docTop = $(document).scrollTop(),
-            $current = $(this.element).find('.current'),
-            currentP = parseInt($current.attr('data-position'), 10);
-        if(docTop < currentP && $current.index() > 0){
-            $current.removeClass('current').css({marginTop: 0})
-                    .prev().addClass('current').css({display:'block'});
-        } else if(docTop < (currentP + $current.height())){
-            $current.css({marginTop:-(docTop-currentP)});
-        } else {
-            $current.removeClass('current')
-                    .css({display:'none'})
-                    .next().addClass('current');
-        }
-    };
-
     Plugin.prototype.setLinks = function(){
         var self = this;
-        $(this.element).find('li').each(function() {
+        $(this.element).find('>li').each(function() {
             var id = $(this).attr('id') || 0;
             self.options.linksArray.push(id);
         });
+    };
+
+    Plugin.prototype.setHash = function(hash){
+        window.location.hash = hash;
     };
 
     $.fn[pluginName] = function ( options ) {
@@ -168,5 +203,17 @@
             }
         });
     };
+
+    // Utils
+    Plugin.prototype.isHashIsOnList = function(hash){
+        var self = this;
+        $.each(self.options.linksArray, function(i,val){
+            if(val === hash){
+                self.scrollToPosition(hash);
+                return false;
+            }
+        });
+    };
+
 
 })( jQuery, window, document );

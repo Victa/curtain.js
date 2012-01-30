@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <title>Sliding Panels example</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="../jquery.slidingpanels.css">
+</head>
+<body>
+
+
+<ul class="menu">
+    <li><a href="#one">One</a></li>
+    <li><a href="#two">Two</a></li>
+    <li><a href="#three">Three</a></li>
+    <li><a href="#four">Four</a></li>
+    <li><a href="#five">Five</a></li>
+    <li><a href="#six">Six</a></li>    
+</ul>
+
+<ol class="slidingpanels">
+    <li id="one" class="cover">
+        
+        <!-- Fork me on github - Ribbon -->
+        <a href="https://github.com/Victa/jQuery-fixed-sliding-pannels"><img style="position: absolute; top: 0; left: 0; border: 0;z-index:2;" src="https://a248.e.akamai.net/assets.github.com/img/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
+
+        <div class="presentation">
+            <h1>Fixed Sliding Panels</h1>
+            <h2>a jQuery plugin by <a href="http://victorcoulon.fr">Victor Coulon</a></h2>
+            <p>
+                This plugin allows you to create a web page with multiple fixed panels that unroll with an amusing effect.
+                You can use the keyboard instead the scroll to navigate.<br><br>
+                I made this plugin for the new website of my friend <a href="http://artographik.fr/">Etienne</a>. 
+                That's why all the illustrations on this page come from him.<br> 
+                And as youp probably noticed, the effect is extensively inspired by the awesome website
+                <a href="http://editsquarterly.com/">Edits Quarterly</a>.<br><br>
+                Feel free to fork the project on <a href="https://github.com/Victa/jQuery-fixed-sliding-pannels">github</a>
+                or ping me on <a href="http://twitter.com/_victa">twitter</a> for any comments.
+                <em>Please be lenient. I'm currently working on the plugin.</em>
+            </p>
+        </div>
+
+    </li>
+    <li id="two" class="cover">
+         <div class="img-wrapper">
+            <img src="img/pic2.jpeg" /> 
+        </div>
+    </li>
+    <li id="three">
+        <div class="fixed">
+            <h1>A fixed content</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+        </div>
+        <div class="content-wrapper">
+            <img src="img/pic1.jpeg" /> 
+            <img src="img/pic2.jpeg" /> 
+            <img src="img/pic1.jpeg" /> 
+            <img src="img/pic2.jpeg" /> 
+            <img src="img/pic1.jpeg" /> 
+        </div>
+    </li>
+    <li id="four" class="cover">
+        <div class="img-wrapper">
+            <img src="img/pic1.jpeg" /> 
+        </div>
+    </li>
+    <li id="five" class="cover">
+        <div class="img-wrapper">
+            <img src="img/pic2.jpeg" /> 
+        </div>
+    </li>
+    <li id="six" class="cover">
+        <div class="img-wrapper">
+            <img src="img/pic3.png" /> 
+        </div>
+    </li>
+</ol>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="../jquery.slidingpanels.js"></script>
+<script>
+    $(function(){
+       $('.slidingpanels').slidingpanels({
+           scrollSpeed: 600           
+       }); 
+       $('.menu').find('a').on('click', function(e){
+           e.preventDefault();
+           window.location.hash = $(this).attr('href');
+       });
+    });
+</script>
+
+ <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22043471-2']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script> 
+</body>
+</html>
