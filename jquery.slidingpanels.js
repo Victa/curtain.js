@@ -28,6 +28,7 @@
     }
 
     Plugin.prototype.init = function () {
+        var self = this;
         $.MobileWebkit = ($('body').hasClass('webkit-mobile') || (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i)));
         $.MobileDevice = ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i)));
         $.Tablet = ((navigator.userAgent.match(/iPad/i)));
@@ -36,8 +37,11 @@
             this.options.mobile = true;
             $(this.element).find('>li').css({position:'relative'});
         }
+        $(window).load(function(){
+            // When all image is loaded
+            self.setDimensions();
+        });
 
-        this.setDimensions();
         this.setEvents();
         this.setLinks();
         this.isHashIsOnList(location.hash.substring(1));
