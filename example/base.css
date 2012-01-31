@@ -22,10 +22,10 @@ em{font-style:italic;}
 .slidingpanels>li:nth-child(2n+1){background:#EEE;}
 
 .fixed{position:fixed;top:150px;left:40px;width:200px;}
-.content-wrapper{margin:100px 0 100px 300px;}
+.content-wrapper{padding:100px 0 100px 300px;}
 
 .number-wrapper{position:absolute;font-size:126px;width:63px;height:151px;top:50%;left:50%;margin-left:-31px;margin-top:-75px;}
-.long-wrapper{text-align:center;margin:130px 0;text-transform:uppercase;font-size:76px;}
+.long-wrapper{text-align:center;padding:130px 0;text-transform:uppercase;font-size:76px;}
 .img-list li{display:block;margin:0 20px 20px;}
 
 /* Plugin Presentation */
@@ -33,7 +33,7 @@ em{font-style:italic;}
 .presentation-wrapper em {display:block;margin-top:14px;color:#999}
 
 /* Plugin instruction */
-.documentation-wrapper{ width:600px;margin:100px auto;}
+.documentation-wrapper{ width:600px;margin:0 auto;padding:100px 0}
 .documentation-wrapper ul {list-style-type:square;margin-left:40px;margin-bottom:12px;}
 
 /* right menu */
