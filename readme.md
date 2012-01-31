@@ -53,7 +53,10 @@ Setup the correct element structure:
             ...
         </li>
         <li id="anotherid">
-            ...
+            <ul>
+                <li class="step"> ... </li> <!-- Add the class "step" to an element to -->
+                <li class="step"> ... </li> <!-- make a break at this point with keyboard controls  -->
+            </ul>
         </li>
     </ol>
   
