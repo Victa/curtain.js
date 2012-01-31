@@ -71,10 +71,23 @@
             }
 
             if(direction === 'up' || direction == 'down'){
+                // Keyboard event
                 var $current = this.$element.find('.current'),
                     $next = (direction === 'up') ? $current.prev() : $current.next();
-
+                
                 position = $next.attr('data-position') || null;
+
+                
+                // Step in the current panel ?
+                if($current.find('.step').length){
+                    if(!$current.find('.current-step').length)
+                        $current.find('.step').eq(0).addClass('current-step');
+                    var $nextStep = (direction === 'up') ? $current.find('.current-step').prev('.step') : $current.find('.current-step').next('.step');
+                    if($nextStep.length) {
+                        position = $nextStep.offset().top;
+                    }
+                }
+                
 
                 if(position){
                     $('html, body').animate({
@@ -101,6 +114,7 @@
                     var docTop = $(document).scrollTop(),
                         $current = self.$element.find('.current'),
                         $fixed = $current.find('.fixed'),
+                        $step = $current.find('.step'),
                         currentP = parseInt($current.attr('data-position'), 10),
                         currentHeight = parseInt($current.attr('data-height'), 10),
                         windowHeight = $(window).height();
@@ -130,6 +144,19 @@
                                     top: dataTop
                                 });
                             }
+                        }
+
+                        
+                        // If there is a step element in the current panel
+                        if($step.length){
+                            $.each($step, function(i,el){
+                                if($(el).offset().top <= docTop && ($(el).offset().top + $(el).outerHeight()) >= docTop){
+                                    if(!$(el).hasClass('current-step')){
+                                        $step.removeClass('current-step');
+                                        $(el).addClass('current-step');
+                                    }
+                                }
+                            });
                         }
 
                     } else {
