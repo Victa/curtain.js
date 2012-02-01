@@ -13,7 +13,8 @@
             scrollSpeed: 400,
             bodyHeight: 0,
             linksArray: [],
-            mobile: false
+            mobile: false,
+            scrollButtons: null
         };
 
     // The actual plugin constructor
@@ -222,6 +223,21 @@
                     self.scrollToPosition('down');
                 }
             });
+
+            if(self.options.scrollButtons){
+                if(self.options.scrollButtons.up.length){
+                    self.options.scrollButtons.up.on('click', function(e){
+                        e.preventDefault();
+                        self.scrollToPosition('up');
+                    });
+                }
+                if(self.options.scrollButtons.down.length){
+                    self.options.scrollButtons.down.on('click', function(e){
+                        e.preventDefault();
+                        self.scrollToPosition('down');
+                    });
+                }
+            }
 
             if ("onhashchange" in window) {
                 window.addEventListener("hashchange", function(){

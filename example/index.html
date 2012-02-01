@@ -9,12 +9,8 @@
 
 
 <ul class="menu">
-    <li><a href="#intro">Intro</a></li>
-    <li><a href="#instructions">Instructions</a></li>
-    <li><a href="#fixed">fixed content</a></li>
-    <li><a href="#four">Four</a></li>
-    <li><a href="#long">long content</a></li>
-    <li><a href="#six">Six</a></li>    
+    <li><a href="#up">Up</a></li>
+    <li><a href="#down">Down</a></li>
 </ul>
 
 <ol class="slidingpanels">
@@ -133,12 +129,12 @@
 <script>
     $(function(){
        $('.slidingpanels').sliding({
-           scrollSpeed: 600           
+           scrollSpeed: 600,
+           scrollButtons: {
+               up: $('.menu').find('[href="#up"]'),
+               down: $('.menu').find('[href="#down"]')
+           }
        }); 
-       $('.menu').find('a').on('click', function(e){
-           e.preventDefault();
-           window.location.hash = $(this).attr('href');
-       });
     });
 </script>
 
