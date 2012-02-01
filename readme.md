@@ -81,6 +81,8 @@ Credits
 
 * http://editsquarterly.com/
 * http://www.dbworks.pro/
+* http://www.deuxhuithuit.com/en/
+* http://www.madebygrave.com/
 
 ### Licence
 Licence MIT
