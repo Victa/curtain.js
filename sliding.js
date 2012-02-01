@@ -13,7 +13,8 @@
             scrollSpeed: 400,
             bodyHeight: 0,
             linksArray: [],
-            mobile: false
+            mobile: false,
+            scrollButtons: null
         };
 
     // The actual plugin constructor
@@ -204,17 +205,17 @@
         setEvents: function() {
             var self = this;
 
-            $(window).resize(function(){
+            $(window).on('resize', function(){
                 self.setDimensions();
             });
 
-            $(window).scroll(function(){
+            $(window).on('scroll', function(){
                 self.didScroll = true;
                 if(!self.options.mobile)
                     self.scrollEvent();
             });
 
-            $(document).keydown(function(e){
+            $(document).on('keydown', function(e){
                 if(e.keyCode === 38 || e.keyCode === 37) {
                    self.scrollToPosition('up');
                 }
@@ -222,6 +223,21 @@
                     self.scrollToPosition('down');
                 }
             });
+
+            if(self.options.scrollButtons){
+                if(self.options.scrollButtons.up){
+                    self.options.scrollButtons.up.on('click', function(e){
+                        e.preventDefault();
+                        self.scrollToPosition('up');
+                    });
+                }
+                if(self.options.scrollButtons.down){
+                    self.options.scrollButtons.down.on('click', function(e){
+                        e.preventDefault();
+                        self.scrollToPosition('down');
+                    });
+                }
+            }
 
             if ("onhashchange" in window) {
                 window.addEventListener("hashchange", function(){

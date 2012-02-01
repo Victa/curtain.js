@@ -3,14 +3,26 @@ Sliding.js
 
 **Please be lenient. I'm currently working on the plugin.**
 
-Live Example : http://lab.victorcoulon.fr/javascript/sliding.js/example/
+This plugin allows you to create a web page with multiple fixed panels that unroll with an amusing effect.
+ 
+To navigate, you can use your keyboard instead the scrollbar or your mousewheel to navigate into the document. 
+But that's not all, there is more features! For example, you can easily add a fixed element or multiple "steps" elements into a pannel.
 
-This plugin allows you to create a web page with multiple fixed panels that unroll with an amusing effect. You can use the keyboard instead the scroll to navigate.
+I created this plugin for the upcoming website of my friend [Etienne](http://artographik.fr/). And I decided to deliver this one as an open source project.
+I would like you to note that the transition effect between two panels is extensively inspired by http://editsquarterly.com
+We were also such inspired by the following websites:
 
-I made this plugin for the upcomming website of my friend [Etienne Ledemay](http://artographik.fr/).
-And as youp probably noticed, the effect is extensively inspired by the awesome website [Edits Quarterly](http://artographik.fr/).
+* http://dbworks.pro
+* http://www.deuxhuithuit.com/en
+* http://madebygrave.com
 
 Feel free to fork the project on github or ping me on [twitter](http://twitter.com/_victa) for any comments.
+
+Demonstrations
+-------------
+
+* [Demo website](http://lab.victorcoulon.fr/javascript/sliding.js/example/)
+* [Artographik](http://artographik.fr/) (upcomming website)
 
 Documentation
 -------------
@@ -33,28 +45,28 @@ Then call ``$('.slidingpanels').sliding();`` to launch the plugin. You can add a
 Valid options for sliding.js are:
 
 * ``scrollSpeed`` - Adjust the scroll speed (default ``400``)
-* More comming soon...
+* ``scrollButtons`` - Bind event on "up" or "down" button (default ``null``)
 
 ### Example
 
 Setup the correct element structure:
 
     <ol class="yourpanelslist">
-        <li id="myfirstid" class="cover"> 
+        <li class="cover"> 
             your content
         </li>
-        <li id="mysecondid">
+        <li>
              <div class="fixed"> <!-- if you need a "fixed" content -->
                 a fixed content
             </div>
             ...
         </li>
-        <li id="coolid" class="cover">
+        <li class="cover">
             ...
         </li>
-        <li id="anotherid">
+        <li >
             <ul>
-                <li class="step"> ... </li> <!-- Add the class "step" to an element to -->
+                <li class="step"> ... </li> <!-- Add the class "step" to an element to  -->
                 <li class="step"> ... </li> <!-- make a break at this point with keyboard controls  -->
             </ul>
         </li>
@@ -64,10 +76,13 @@ Then, you can launch the plugin:
 
     $(function () {
         $('.yourpanelslist').sliding({
-            scrollSpeed: 600
+            scrollSpeed: 600,
+            scrollButtons: {
+                up: $('#up'),
+                down: $('#down')
+            }
         });
-    }); 
-
+    });
 
 Credits
 -------------
@@ -75,8 +90,12 @@ Credits
 ### Author
 [Victor Coulon](http://victorcoulon.fr) or ping me on twitter http://twitter.com/_victa
 
-### Inspiration
-http://editsquarterly.com/
+### Inspirations
+
+* http://editsquarterly.com/
+* http://www.dbworks.pro/
+* http://www.deuxhuithuit.com/en/
+* http://www.madebygrave.com/
 
 ### Licence
 Licence MIT
