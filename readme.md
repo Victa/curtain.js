@@ -11,6 +11,7 @@ But that's not all, there is more features! For example, you can easily add a fi
 I created this plugin for the upcoming website of my friend [Etienne](http://artographik.fr/). And I decided to deliver this one as an open source project.
 I would like you to note that the transition effect between two panels is extensively inspired by http://editsquarterly.com
 We were also such inspired by the following websites:
+
 * http://dbworks.pro
 * http://www.deuxhuithuit.com/en
 * http://madebygrave.com
