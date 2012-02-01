@@ -3,13 +3,28 @@ Sliding.js
 
 **Please be lenient. I'm currently working on the plugin.**
 
-Live Example : http://lab.victorcoulon.fr/javascript/sliding.js/example/
+This plugin allows you to create a web page with multiple fixed panels that unroll with an amusing effect.
+ 
+To navigate, you can use your keyboard instead the scrollbar or your mousewheel to navigate into the document. 
 
-This plugin allows you to create a web page with multiple fixed panels that unroll with an amusing effect. You can use the keyboard instead the scroll to navigate.
+But that's not all, there is more features!
+For example, you can easily add a fixed element or multiple "steps" elements into a pannel.
 
-I made this plugin for the upcomming website of my friend [Etienne Ledemay](http://artographik.fr/).
+I created this plugin for the upcoming website of my friend (Etienne)[http://artographik.fr/]. And I decided to deliver this one as an open source project.
+
+I would like you to note that the transition effect between two panels is extensively inspired by http://editsquarterly.com
+We were also such inspired by the following websites:
+* http://dbworks.pro
+* http://www.deuxhuithuit.com/en
+* http://madebygrave.com
 
 Feel free to fork the project on github or ping me on [twitter](http://twitter.com/_victa) for any comments.
+
+Demo
+-------------
+
+* (Demo website)[http://lab.victorcoulon.fr/javascript/sliding.js/example/]
+* (Artographik)[http://artographik.fr/] (upcomming website)
 
 Documentation
 -------------
