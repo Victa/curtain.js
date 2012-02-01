@@ -9,8 +9,8 @@
 
 
 <ul class="menu">
-    <li><a href="#up">Up</a></li>
-    <li><a href="#down">Down</a></li>
+    <li><a href="#up">&#8593;</a></li>
+    <li><a href="#down">&#8595;</a></li>
 </ul>
 
 <ol class="slidingpanels">
@@ -26,8 +26,6 @@
                 This plugin allows you to create a web page with multiple fixed panels that unroll with an amusing effect.
                 You can use the keyboard instead the scroll to navigate.<br><br>
                 I made this plugin for the new website of my friend <a href="http://artographik.fr/">Etienne</a>.<br>
-                And as youp probably noticed, the effect is extensively inspired by the awesome website
-                <a href="http://editsquarterly.com/">Edits Quarterly</a>.<br><br>
                 Feel free to fork the project on <a href="https://github.com/Victa/sliding.js">github</a>
                 or ping me on <a href="http://twitter.com/_victa">twitter</a> for any comments.
                 <em>Please be lenient. I'm currently working on the plugin.</em>
@@ -46,23 +44,24 @@
             <p>Valid options for sliding.js are:</p>
             <ul>
                 <li>scrollSpeed - Adjust the scroll speed (default <code>400</code>)</li>
+                <li>scrollButtons - Bind event on "up" or "down" button (default <code>null</code>)</li>
             </ul>
             <h2>Example</h2>
             <p>Setup the correct element structure:</p>
 <pre>&lt;ol class="yourpanelslist"&gt;
-    &lt;li id="myfirstid" class="cover"&gt; 
+    &lt;li class="cover"&gt; 
         your content
     &lt;/li&gt;
-    &lt;li id="mysecondid"&gt;
+    &lt;li&gt;
          &lt;div class="fixed"&gt; &lt;!-- if you need a "fixed" content --&gt;
             a fixed content
         &lt;/div&gt;
         ...
     &lt;/li&gt;
-    &lt;li id="coolid" class="cover"&gt;
+    &lt;li class="cover"&gt;
         ...
     &lt;/li&gt;
-    &lt;li id="anotherid"&gt;
+    &lt;li &gt;
         &lt;ul&gt;
             &lt;li class="step"&gt; ... &lt;/li&gt; &lt;!-- Add the class "step" to an element to  --&gt;
             &lt;li class="step"&gt; ... &lt;/li&gt; &lt;!-- make a break at this point with keyboard controls  --&gt;
@@ -72,33 +71,52 @@
 <p>Then, you can launch the plugin:</p>
 <pre>$(function () {
     $('.yourpanelslist').sliding({
-        scrollSpeed: 600
+        scrollSpeed: 600,
+        scrollButtons: {
+            up: $('#up'),
+            down: $('#down')
+        }
     });
 });
 </pre>
         </div>
     </li>
-    <li id="fixed">
+    <li>
         <div class="fixed">
             <h1>A fixed content</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
         </div>
         <div class="content-wrapper">
-            <ul class="img-list">
+            <ul class="step-list">
+                <li class="step">
+                    <h1>A static and responsive content</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                </li>
                 <li class="step"><img src="img/1.jpeg" alt=""></li>
                 <li class="step"><img src="img/2.jpeg" alt=""></li>
+                <li class="step">
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                    Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
+                    amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit
+                    amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare
+                    sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus
+                    lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+                    faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi,
+                    tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+                </li>
                 <li class="step"><img src="img/3.jpeg" alt=""></li>
                 <li class="step"><img src="img/4.jpeg" alt=""></li>
             </ul>
         </div>
     </li>
-    <li id="four" class="cover">
+    <li class="cover">
         <div class="number-wrapper">
             4
         </div>
     </li>
-    <li id="long">
+    <li>
         <div class="long-wrapper">
             a<br>
             <br>
@@ -117,10 +135,11 @@
             panel
         </div>
     </li>
-    <li id="six" class="cover">
-        <div class="number-wrapper">
-            6
+    <li id="download" class="cover">
+        <div class="download-wrapper">
+            <a href="https://github.com/Victa/sliding.js" class="btn">Download <span>on github.com</span></a>
         </div>
+        <a href="http://twitter.com/_victa" class="follow">Follow me on twitter</a>
     </li>
 </ol>
 
