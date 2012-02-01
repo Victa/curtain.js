@@ -78,7 +78,9 @@ Credits
 [Victor Coulon](http://victorcoulon.fr) or ping me on twitter http://twitter.com/_victa
 
 ### Inspiration
-http://editsquarterly.com/
+
+* http://editsquarterly.com/
+* http://www.dbworks.pro/
 
 ### Licence
 Licence MIT
