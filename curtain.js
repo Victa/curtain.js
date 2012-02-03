@@ -84,6 +84,7 @@
                     var $nextStep = (direction === 'up') ? $current.find('.current-step').prev('.step') : $current.find('.current-step').next('.step');
                     if($nextStep.length) {
                         position = $nextStep.offset().top;
+                        console.log($nextStep.attr('id'), position);
                     }
                 }
                 
@@ -149,7 +150,7 @@
                         // If there is a step element in the current panel
                         if($step.length){
                             $.each($step, function(i,el){
-                                if($(el).offset().top <= docTop && ($(el).offset().top + $(el).outerHeight()) >= docTop){
+                                if($(el).offset().top <= docTop+5 && ($(el).offset().top + $(el).outerHeight()) >= docTop+5){
                                     if(!$(el).hasClass('current-step')){
                                         $step.removeClass('current-step');
                                         $(el).addClass('current-step');
