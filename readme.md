@@ -1,12 +1,12 @@
-Sliding.js
+Curtain.js
 ========================================
 
 **Please be lenient. I'm currently working on the plugin.**
 
-This plugin allows you to create a web page with multiple fixed panels that unroll with an amusing effect.
+This plugin allows you to create a web page with multiple fixed panels that unroll with an amusing effect. Exactly like a curtain rises.
  
-To navigate, you can use your keyboard instead the scrollbar or your mousewheel to navigate into the document. 
-But that's not all, there is more features! For example, you can easily add a fixed element or multiple "steps" elements into a pannel.
+To navigate, you can use your keyboard instead the scrollbar or mousewheel to navigate into the document. 
+But that's not all, there is more features! For example, you can easily add a fixed element or multiple "steps" element inside a pannel.
 
 I created this plugin for the upcoming website of my friend [Etienne](http://artographik.fr/). And I decided to deliver this one as an open source project.
 I would like you to note that the transition effect between two panels is extensively inspired by http://editsquarterly.com
@@ -15,6 +15,7 @@ We were also such inspired by the following websites:
 * http://dbworks.pro
 * http://www.deuxhuithuit.com/en
 * http://madebygrave.com
+* http://www.boston.com/bigpicture/
 
 Feel free to fork the project on github or ping me on [twitter](http://twitter.com/_victa) for any comments.
 
@@ -32,13 +33,13 @@ Documentation
 Usage is very straightforward, simply include sliding.js file in the page, along with jQuery.
 
     <script src="js/libs/jquery.js"></script>  
-    <script src="js/libs/sliding.js"></script>
+    <script src="js/libs/curtain.js"></script>
 
 And don't forget to add the base stylesheet
 
-    <link rel="stylesheet" href="sliding.css">
+    <link rel="stylesheet" href="curtain.css">
 
-Then call ``$('.slidingpanels').sliding();`` to launch the plugin. You can add a set of optional options.
+Then call ``$('.curtains').curtain();`` to launch the plugin. You can add a set of optional options.
 
 ### Options
 
@@ -75,7 +76,7 @@ Setup the correct element structure:
 Then, you can launch the plugin:
 
     $(function () {
-        $('.yourpanelslist').sliding({
+        $('.yourpanelslist').curtain({
             scrollSpeed: 600,
             scrollButtons: {
                 up: $('#up'),
@@ -96,6 +97,7 @@ Credits
 * http://www.dbworks.pro/
 * http://www.deuxhuithuit.com/en/
 * http://www.madebygrave.com/
+* http://www.boston.com/bigpicture/
 
 ### Licence
 Licence MIT
