@@ -12,6 +12,7 @@ I created this plugin for the upcoming website of my friend [Etienne](http://art
 I would like you to note that the transition effect between two panels is extensively inspired by http://editsquarterly.com
 We were also such inspired by the following websites:
 
+* http://www.interviewmagazine.com
 * http://dbworks.pro
 * http://www.deuxhuithuit.com/en
 * http://madebygrave.com
@@ -93,6 +94,7 @@ Credits
 
 ### Inspirations
 
+* http://www.interviewmagazine.com
 * http://editsquarterly.com/
 * http://www.dbworks.pro/
 * http://www.deuxhuithuit.com/en/
