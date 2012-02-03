@@ -3,13 +3,13 @@ html{
     overflow-x: hidden;
 }
 
-.slidingpanels{
+.curtains{
     width: 100%;
     z-index:1;
     position:relative;
 }
 
-.slidingpanels>li{
+.curtains>li{
     background: white;
     position: fixed;
     display:block;
@@ -19,5 +19,3 @@ html{
     min-height: 100%;
     z-index: 99999;
 }
-
-

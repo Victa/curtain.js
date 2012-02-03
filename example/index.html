@@ -1,9 +1,9 @@
 <!doctype html>
 <html>
 <head>
-    <title>Sliding.js</title>
+    <title>Curtain.js</title>
     <link rel="stylesheet" href="base.css">
-    <link rel="stylesheet" href="../sliding.css">
+    <link rel="stylesheet" href="../curtain.css">
 </head>
 <body>
 
@@ -13,22 +13,22 @@
     <li><a href="#down">&#8595;</a></li>
 </ul>
 
-<ol class="slidingpanels">
+<ol class="curtains">
     <li id="intro" class="cover">
         
         <!-- Fork me on github - Ribbon -->
-        <a href="https://github.com/Victa/sliding.js"><img style="position: absolute; top: 0; left: 0; border: 0;z-index:2;" src="https://a248.e.akamai.net/assets.github.com/img/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
+        <a href="https://github.com/Victa/curtain.js"><img style="position: absolute; top: 0; left: 0; border: 0;z-index:2;" src="https://a248.e.akamai.net/assets.github.com/img/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
 
         <div class="presentation-wrapper">
-            <h1>Sliding.js</h1>
+            <h1>Curtain.js</h1>
             
             <p>
                 This plugin allows you to create a web page with multiple fixed panels that unroll with an
-                amusing effect.
+                amusing effect. Exactly like a curtain rises.
                 <br><br>
                 To navigate, you can use your keyboard instead the scrollbar or your mousewheel to
                 navigate into the document. But that's not all, there is more features! For example,
-                you can easily add a fixed element or multiple "steps" elements into a pannel.
+                you can easily add a fixed element or multiple "steps" element into a pannel.
                 <br><br>
                 I created this plugin for the upcoming website of my friend <a href="http://artographik.fr/">Etienne</a>.
                 And I decided to deliver this one as an open source project. I would like you to
@@ -39,8 +39,9 @@
                 <a href="http://dbworks.pro">http://dbworks.pro</a><br>
                 <a href="http://www.deuxhuithuit.com/en">http://www.deuxhuithuit.com/en</a><br>
                 <a href="http://madebygrave.com">http://madebygrave.com</a><br>
+                <a href="http://www.boston.com/bigpicture/">http://www.boston.com/bigpicture</a><br>
                 <br>
-                Feel free to fork the project on <a href="https://github.com/Victa/sliding.js">github</a>
+                Feel free to fork the project on <a href="https://github.com/Victa/curtain.js">github</a>
                 or ping me on <a href="http://twitter.com/_victa">twitter</a> for any comments.
                 <em>Please be lenient. I'm currently working on the plugin.</em>
             </p>
@@ -55,19 +56,19 @@
          <div class="documentation-wrapper">
             <h1>Documentation</h1>
             <h2>Basic Usage</h2>
-            <p>Usage is very straightforward, simply include sliding.js file in the page, along with jQuery.</p>
+            <p>Usage is very straightforward, simply include curtain.js file in the page, along with jQuery.</p>
 <pre>&lt;script src="js/libs/jquery.js"&gt;&lt;/script&gt;  
-&lt;script src="js/libs/sliding.js"&gt;&lt;/script&gt;</pre>
-            <p>Then call <code>$('.slidingpanels').sliding();</code> to launch the plugin. You can add a set of optional options.</p>
+&lt;script src="js/libs/curtain.js"&gt;&lt;/script&gt;</pre>
+            <p>Then call <code>$('.curtains').curtain();</code> to launch the plugin. You can add a set of optional options.</p>
             <h2>Options</h2>
-            <p>Valid options for sliding.js are:</p>
+            <p>Valid options for curtain.js are:</p>
             <ul>
                 <li>scrollSpeed - Adjust the scroll speed (default <code>400</code>)</li>
                 <li>scrollButtons - Bind event on "up" or "down" button (default <code>null</code>)</li>
             </ul>
             <h2>Example</h2>
             <p>Setup the correct element structure:</p>
-<pre>&lt;ol class="yourpanelslist"&gt;
+<pre>&lt;ol class="curtains"&gt;
     &lt;li class="cover"&gt; 
         your content
     &lt;/li&gt;
@@ -89,7 +90,7 @@
 &lt;/ol&gt;</pre>
 <p>Then, you can launch the plugin:</p>
 <pre>$(function () {
-    $('.yourpanelslist').sliding({
+    $('.curtains').curtain({
         scrollSpeed: 600,
         scrollButtons: {
             up: $('#up'),
@@ -129,6 +130,47 @@
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
             <h2>Lorem ipsum</h2>
             <img src="img/1.jpeg" alt="">
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
+            amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit
+            amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare
+            sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus
+            lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+            faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi,
+            tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+            <h2>Lorem ipsum</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
+            amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit
+            amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare
+            sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus
+            lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+            faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi,
+            tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+            <h2>Lorem ipsum</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+            <h2>Lorem ipsum</h2>
+            <img src="img/2.jpeg" alt="">
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
+            amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit
+            amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare
+            sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus
+            lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+            faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi,
+            tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+            <h2>Lorem ipsum</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+            <h2>Lorem ipsum</h2>
+            <img src="img/3.jpeg" alt="">
             <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
             Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
             amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit
@@ -207,38 +249,19 @@
             </ul>
         </div>
     </li>
-    <li>
-        <div class="long-wrapper">
-            a<br>
-            <br>
-            l<br>
-            o<br>
-            o<br>
-            o<br>
-            o<br>
-            o<br>
-            o<br>
-            o<br>
-            o<br>
-            n<br>
-            g<br>
-            <br>
-            panel
-        </div>
-    </li>
     <li id="download" class="cover">
         <div class="download-wrapper">
-            <a href="https://github.com/Victa/sliding.js" class="btn">Download <span>on github.com</span></a>
+            <a href="https://github.com/Victa/curtain.js" class="btn">Download <span>on github.com</span></a>
         </div>
         <a href="http://twitter.com/_victa" class="follow">Follow me on twitter</a>
     </li>
 </ol>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="../sliding.js"></script>
+<script src="../curtain.js"></script>
 <script>
     $(function(){
-       $('.slidingpanels').sliding({
+       $('.curtains').curtain({
            scrollSpeed: 600,
            scrollButtons: {
                up: $('.menu').find('[href="#up"]'),

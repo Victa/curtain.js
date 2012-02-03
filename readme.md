@@ -22,7 +22,7 @@ Feel free to fork the project on github or ping me on [twitter](http://twitter.c
 Demonstrations
 -------------
 
-* [Demo website](http://lab.victorcoulon.fr/javascript/sliding.js/example/)
+* [Demo website](http://curtain.victorcoulon.fr)
 * [Artographik](http://artographik.fr/) (upcomming website)
 
 Documentation
@@ -30,7 +30,7 @@ Documentation
 
 ### Basic Usage
 
-Usage is very straightforward, simply include sliding.js file in the page, along with jQuery.
+Usage is very straightforward, simply include curtain.js file in the page, along with jQuery.
 
     <script src="js/libs/jquery.js"></script>  
     <script src="js/libs/curtain.js"></script>
@@ -43,7 +43,7 @@ Then call ``$('.curtains').curtain();`` to launch the plugin. You can add a set 
 
 ### Options
 
-Valid options for sliding.js are:
+Valid options for curtain.js are:
 
 * ``scrollSpeed`` - Adjust the scroll speed (default ``400``)
 * ``scrollButtons`` - Bind event on "up" or "down" button (default ``null``)
@@ -52,7 +52,7 @@ Valid options for sliding.js are:
 
 Setup the correct element structure:
 
-    <ol class="yourpanelslist">
+    <ol class="curtains">
         <li class="cover"> 
             your content
         </li>
@@ -76,7 +76,7 @@ Setup the correct element structure:
 Then, you can launch the plugin:
 
     $(function () {
-        $('.yourpanelslist').curtain({
+        $('.curtains').curtain({
             scrollSpeed: 600,
             scrollButtons: {
                 up: $('#up'),

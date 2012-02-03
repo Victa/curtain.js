@@ -1,14 +1,12 @@
-/*  jQuery : sliding panels
-    Inspired by http://editsquarterly.com/
-
-    Author : Victor Coulon (http://victorcoulon.fr)
-
+/*  Curtain.js
+    =====
+    By Victor Coulon (http://victorcoulon.fr)
     Licence MIT
 */
 
 (function ( $, window, document, undefined ) {
 
-    var pluginName = 'sliding',
+    var pluginName = 'curtain',
         defaults = {
             scrollSpeed: 400,
             bodyHeight: 0,
