@@ -94,8 +94,8 @@ Credits
 
 ### Inspirations
 
-* http://www.interviewmagazine.com
 * http://editsquarterly.com/
+* http://www.interviewmagazine.com
 * http://www.dbworks.pro/
 * http://www.deuxhuithuit.com/en/
 * http://www.madebygrave.com/
