@@ -70,10 +70,13 @@ pre {
         float:left;
         width:50%;
         padding:0 10px;
-        -webkit-box-sizing:boder-box;
-        -moz-box-sizing:boder-box;
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing:border-box;
         box-sizing:border-box;
     }
+
+.step-list {display:block;}
+.step-list li {display: block;}
 
 .number-wrapper {
     position: absolute;
@@ -96,11 +99,25 @@ pre {
     text-align: center;
 }
 
-.step-list li {
-    display: block;
-    margin: 0 0 20px;
-    padding: 20px 0 0;
+.cover-wrapper img{
+    position:absolute;
+    top:0;
+    left:0; 
+    /* Preserve aspet ratio */
+    min-width:100%;
+    min-height:100%;
 }
+
+    .cover-wrapper span{
+        position:absolute;
+        top:50%;left:0;right:0;
+        height:20px;line-height:20px;
+        text-align:center;
+        font-size:20px;
+        margin-top:-10px;
+        color:#FFF;
+        text-shadow:0 1px 1px black;
+    }
 
 /* Plugin Presentation */
 .presentation-wrapper {
