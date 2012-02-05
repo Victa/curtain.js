@@ -45,7 +45,9 @@ pre {
 
 /* Sliding panels */
 .curtains>li {
-    box-shadow: 0 1px 4px #444;
+    -webkit-box-shadow: 0 1px 18px #333;
+    -moz-box-shadow: 0 1px 18px #333;
+    box-shadow: 0 1px 18px #333;
 }
 
 .curtains>li:nth-child(2n+1) {
@@ -157,10 +159,9 @@ pre {
 .menu {
     z-index: 2;
     position: fixed;
-    top: 50%;
-    margin-top: -40px;
+    bottom:0;
     text-align: right;
-    right: 0;
+    left: 0;
 }
 
 .menu a {
