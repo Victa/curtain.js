@@ -1,8 +1,6 @@
 Curtain.js
 ========================================
 
-**Please be lenient. I'm currently working on the plugin.**
-
 This plugin allows you to create a web page with multiple fixed panels that unroll with an amusing effect. Exactly like a curtain rises.
  
 To navigate, you can use your keyboard instead the scrollbar or mousewheel to navigate into the document. 
