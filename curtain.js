@@ -48,9 +48,9 @@
             // When all image is loaded
             $(window).load(function(){
                 self.setDimensions();
+                self.$li.eq(0).addClass('current');
 
                 if(!self.options.mobile){
-                    self.$li.eq(0).addClass('current');
                     if(self.$li.eq(1).length)
                         self.$li.eq(1).nextAll().css({display:'none'});
                 }
@@ -94,6 +94,7 @@
                         scrollTop:position
                     }, this.options.scrollSpeed);
                 }
+
             } else{
                 position = $("#"+direction).attr('data-position') || null;
                 if(position){
@@ -169,6 +170,43 @@
             }, 5);
 
         },
+        scrollMobileEvent: function() {
+            var self = this;
+
+            setInterval(function() {
+                if ( self.didScroll ) {
+                    self.didScroll = false;
+                
+                    var docTop = $(document).scrollTop(),
+                        $current = self.$element.find('.current'),
+                        $step = $current.find('.step'),
+                        currentP = parseInt($current.attr('data-position'), 10),
+                        currentHeight = parseInt($current.attr('data-height'), 10),
+                        windowHeight = $(window).height();
+
+                    if(docTop < currentP && $current.index() > 0){
+                        $current.removeClass('current').prev().addClass('current');
+                    } else if(docTop < (currentP + $current.height())){
+                        
+                        // If there is a step element in the current panel
+                        if($step.length){
+                            $.each($step, function(i,el){
+                                if($(el).offset().top <= docTop+5 && ($(el).offset().top + $(el).outerHeight()) >= docTop+5){
+                                    if(!$(el).hasClass('current-step')){
+                                        $step.removeClass('current-step');
+                                        $(el).addClass('current-step');
+                                    }
+                                }
+                            });
+                        }
+
+                    } else {
+                        $current.removeClass('current').next().addClass('current');
+                    }
+                }
+            }, 5);
+
+        },
         // Setters
         setDimensions: function(){
             var windowHeight = $(window).height(),
@@ -210,7 +248,9 @@
 
             $(window).on('scroll', function(){
                 self.didScroll = true;
-                if(!self.options.mobile)
+                if(self.options.mobile)
+                    self.scrollMobileEvent();
+                else
                     self.scrollEvent();
             });
 
