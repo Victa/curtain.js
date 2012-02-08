@@ -12,7 +12,7 @@
             bodyHeight: 0,
             linksArray: [],
             mobile: false,
-            scrollButtons: null,
+            scrollButtons: {},
             menu: null
         };
 
@@ -49,8 +49,17 @@
             if(self.options.menu){
                 self.options.scrollButtons['up'] =  self.options.menu.find('[href="#up"]');
                 self.options.scrollButtons['down'] =  self.options.menu.find('[href="#down"]');
-                if(this.options.mobile) {
-                    self.options.menu.css({position: 'absolute', display: 'none', '-webkit-transition': '-webkit-transform 0.2s ease-out'});
+                if(self.options.mobile){
+                    self.$element.css({
+                        position:'fixed',
+                        top:0,
+                        left:0,
+                        right:0,
+                        bottom:0,
+                        '-webkit-overflow-scrolling':'touch',
+                        overflow:'auto'
+                    });
+                    self.options.menu.css({position:'absolute'});
                 }
             }
 
@@ -71,7 +80,9 @@
         },
         // Events
         scrollToPosition: function (direction){
-            var position = null;
+            var position = null,
+                self = this,
+                scrollEl = (this.options.mobile) ? this.$element : $('body, html');
 
             if($('html, body').is(':animated')){
                 return false;
@@ -91,13 +102,12 @@
                         $current.find('.step').eq(0).addClass('current-step');
                     var $nextStep = (direction === 'up') ? $current.find('.current-step').prev('.step') : $current.find('.current-step').next('.step');
                     if($nextStep.length) {
-                        position = $nextStep.offset().top;
+                        position = (this.options.mobile) ? $nextStep.position().top + parseInt($current.attr('data-position'), 10) : $nextStep.offset().top;
                     }
                 }
-                
 
                 if(position){
-                    $('html, body').animate({
+                    scrollEl.animate({
                         scrollTop:position
                     }, this.options.scrollSpeed);
                 }
@@ -105,9 +115,9 @@
             } else{
                 position = $("#"+direction).attr('data-position') || null;
                 if(position){
-                    $('html, body').animate({
+                    scrollEl.animate({
                         scrollTop:position
-                    }, this.options.scrollSpeed);
+                    }, this.options.scrollSpeed).scrollTop(position);
                 }
             }
             
@@ -184,7 +194,7 @@
                 if ( self.didScroll ) {
                     self.didScroll = false;
                 
-                    var docTop = $(document).scrollTop(),
+                    var docTop = self.$element.scrollTop(),
                         $current = self.$element.find('.current'),
                         $step = $current.find('.step'),
                         currentP = parseInt($current.attr('data-position'), 10),
@@ -198,7 +208,7 @@
                         // If there is a step element in the current panel
                         if($step.length){
                             $.each($step, function(i,el){
-                                if($(el).offset().top <= docTop+5 && ($(el).offset().top + $(el).outerHeight()) >= docTop+5){
+                                if(($(el).position().top+currentP) <= docTop && (($(el).position().top+currentP) + $(el).outerHeight()) >= docTop){
                                     if(!$(el).hasClass('current-step')){
                                         $step.removeClass('current-step');
                                         $(el).addClass('current-step');
@@ -243,8 +253,8 @@
                     $self.find('.fixed').attr('data-top', top);
                 }
             });
-
-            this.setBodyHeight();
+            if(!this.options.mobile)
+                this.setBodyHeight();
         },
         setEvents: function() {
             var self = this;
@@ -253,13 +263,17 @@
                 self.setDimensions();
             });
 
-            $(window).on('scroll', function(){
-                self.didScroll = true;
-                if(self.options.mobile)
+            if(self.options.mobile) {
+                self.$element.on('scroll', function(){
+                    self.didScroll = true;
                     self.scrollMobileEvent();
-                else
+                });
+            } else {
+                $(window).on('scroll', function(){
+                    self.didScroll = true;
                     self.scrollEvent();
-            });
+                });
+            }
 
             $(document).on('keydown', function(e){
                 if(e.keyCode === 38 || e.keyCode === 37) {
@@ -290,17 +304,6 @@
                     self.isHashIsOnList(location.hash.substring(1));
                 }, false);
             }
-
-            // Fix iOs scroll event issue
-            /*
-            if(this.options.mobile && self.options.menu){
-                var heightMenu = self.options.menu.height()*2;
-                $(window).scroll(function() {
-                    var px = window.scrollY + window.innerHeight - heightMenu;
-                    self.options.menu.css('-webkit-transform', 'translateY('+parseInt(px, 10)+'px)');
-                });
-            }
-            */
         },
         setBodyHeight: function(){
             var h = 0;
