@@ -10,8 +10,8 @@
 
 
 <ul class="menu">
-    <li><a href="#up">&#8593;</a></li>
-    <li><a href="#down">&#8595;</a></li>
+    <li><button href="#up">&#8593;</button></li>
+    <li><button href="#down">&#8595;</button></li>
 </ul>
 
 <ol class="curtains">
@@ -37,6 +37,7 @@
                 <a href="http://editsquarterly.com/">Edits Quarterly</a> We were also such inspired
                 by the following websites:<br>
                 <br>
+                <a href="http://www.interviewmagazine.com">http://www.interviewmagazine.com</a><br>
                 <a href="http://dbworks.pro">http://dbworks.pro</a><br>
                 <a href="http://www.deuxhuithuit.com/en">http://www.deuxhuithuit.com/en</a><br>
                 <a href="http://madebygrave.com">http://madebygrave.com</a><br>
@@ -60,16 +61,23 @@
             <p>Usage is very straightforward, simply include curtain.js file in the page, along with jQuery.</p>
 <pre>&lt;script src="js/libs/jquery.js"&gt;&lt;/script&gt;  
 &lt;script src="js/libs/curtain.js"&gt;&lt;/script&gt;</pre>
+            <p>And don't forget to add the base stylesheet</p>
+<pre>&lt;link rel="stylesheet" href="curtain.css"></pre>
             <p>Then call <code>$('.curtains').curtain();</code> to launch the plugin. You can add a set of optional options.</p>
             <h2>Options</h2>
             <p>Valid options for curtain.js are:</p>
             <ul>
-                <li>scrollSpeed - Adjust the scroll speed (default <code>400</code>)</li>
-                <li>scrollButtons - Bind event on "up" or "down" button (default <code>null</code>)</li>
+                <li><code>scrollSpeed</code> - Adjust the scroll speed (default <code>400</code>)</li>
+                <li><code>menu</code> - Bind event on "up" or/and "down" button (default <code>null</code>)</li>
             </ul>
             <h2>Example</h2>
             <p>Setup the correct element structure:</p>
-<pre>&lt;ol class="curtains"&gt;
+<pre>&lt;ul class="menu">
+    &lt;li>&lt;a href="#up">&#8593;&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="#down">&#8595;&lt;/a>&lt;/li>
+&lt;/ul>
+
+&lt;ol class="curtains"&gt;
     &lt;li class="cover"&gt; 
         your content
     &lt;/li&gt;
@@ -93,13 +101,17 @@
 <pre>$(function () {
     $('.curtains').curtain({
         scrollSpeed: 600,
-        scrollButtons: {
-            up: $('#up'),
-            down: $('#down')
-        }
+        menu: $('.menu')
     });
 });
 </pre>
+            <h1>Compatibility</h1>
+            <p>Tested in:<br>
+            iOs 5.0.1 (iPhone + iPad) <em>but the curtain effect is disabled</em><br>
+            Safari 5+<br>
+            Firefox 9+<br>
+            Chrome 17+<br>
+            </p>
             <h1>Credits</h1>
             <h2>Author</h2>
             <p><a href="http://victorcoulon.fr">Victor Coulon</a> or ping me on twitter <a href="http://twitter.com/_victa">http://twitter.com/_victa</a></p>

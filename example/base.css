@@ -42,12 +42,9 @@ pre {
     border-radius: 3px;
 }
 
-
 /* Sliding panels */
 .curtains>li {
-    -webkit-box-shadow: 0 1px 18px #333;
-    -moz-box-shadow: 0 1px 18px #333;
-    box-shadow: 0 1px 18px #333;
+    box-shadow: 0 1px 14px 3px #333;
 }
 
 .curtains>li:nth-child(2n+1) {
@@ -164,7 +161,7 @@ pre {
     left: 0;
 }
 
-.menu a {
+.menu button {
     display: block;
     height: 40px;
     width: 40px;
@@ -174,6 +171,8 @@ pre {
     text-align: center;
     color: #e6e6e6;
     text-decoration: none;
+    border:0;
+    cursor:pointer;
 }
 
 .menu a:hover {

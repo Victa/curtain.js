@@ -47,11 +47,16 @@ Then call ``$('.curtains').curtain();`` to launch the plugin. You can add a set 
 Valid options for curtain.js are:
 
 * ``scrollSpeed`` - Adjust the scroll speed (default ``400``)
-* ``scrollButtons`` - Bind event on "up" or "down" button (default ``null``)
+* ``menu`` - Bind event on "up" or "down" button (default ``null``)
 
 ### Example
 
 Setup the correct element structure:
+
+    <ul class="menu">
+        <li><a href="#up">↑</a></li>
+        <li><a href="#down">↓</a></li>
+    </ul>
 
     <ol class="curtains">
         <li class="cover"> 
@@ -79,12 +84,17 @@ Then, you can launch the plugin:
     $(function () {
         $('.curtains').curtain({
             scrollSpeed: 600,
-            scrollButtons: {
-                up: $('#up'),
-                down: $('#down')
-            }
+            menu: $('.menu')
         });
     });
+
+Compatibility
+-------------
+Tested in:
+* iOs 5.0.1 (iPhone + iPad) *but the curtain effect is disabled*
+* Safari 5+
+* Firefox 9+
+* Chrome 17+
 
 Credits
 -------------

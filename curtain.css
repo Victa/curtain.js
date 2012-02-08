@@ -19,4 +19,5 @@ html{
     min-height: 100%;
     z-index: 99999;
     overflow: hidden;
+    -webkit-backface-visibility:hidden; /* Remove if you got display issues */
 }
