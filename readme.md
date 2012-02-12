@@ -89,7 +89,8 @@ Then, you can launch the plugin:
 Compatibility
 -------------
 Tested in:
-* iOs 5.0.1 (iPhone + iPad) *but the curtain effect is disabled*
+
+* iOs 5.0.1 (iPhone + iPad) __but the curtain effect is disabled__
 * Safari 5+
 * Firefox 9+
 * Chrome 17+
