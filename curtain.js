@@ -1,7 +1,8 @@
-/*  Curtain.js
-    =====
-    By Victor Coulon (http://victorcoulon.fr)
-    Licence MIT
+/*
+* Curtain.js - Create an unique page transitioning system
+* ---
+* Copyright 2011, Victor Coulon (http://victorcoulon.fr)
+* Released under the MIT Licence
 */
 
 (function ( $, window, document, undefined ) {
@@ -277,10 +278,14 @@
 
             $(document).on('keydown', function(e){
                 if(e.keyCode === 38 || e.keyCode === 37) {
-                   self.scrollToPosition('up');
+                    self.scrollToPosition('up');
+                    e.preventDefault();
+                    return false;
                 }
                 if(e.keyCode === 40 || e.keyCode === 39){
                     self.scrollToPosition('down');
+                    e.preventDefault();
+                    return false;
                 }
             });
 
