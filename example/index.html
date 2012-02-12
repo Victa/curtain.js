@@ -59,26 +59,42 @@
     </li>
     <li id="instructions">
          <div class="documentation-wrapper">
-            <h1>Documentation</h1>
-            <h2>Basic Usage</h2>
-            <p>Usage is very straightforward, simply include curtain.js file in the page, along with jQuery.</p>
-<pre>&lt;script src="js/libs/jquery.js"&gt;&lt;/script&gt;  
-&lt;script src="js/libs/curtain.js"&gt;&lt;/script&gt;</pre>
-            <p>And don't forget to add the base stylesheet</p>
-<pre>&lt;link rel="stylesheet" href="curtain.css"></pre>
-            <p>Then call <code>$('.curtains').curtain();</code> to launch the plugin. You can add a set of optional options.</p>
-            <h2>Options</h2>
-            <p>Valid options for curtain.js are:</p>
-            <ul>
-                <li><code>scrollSpeed</code> - Adjust the scroll speed (default <code>400</code>)</li>
-                <li><code>menu</code> - Bind event on "up" or/and "down" button (default <code>null</code>)</li>
-            </ul>
-            <h2>Example</h2>
-            <p>Setup the correct element structure:</p>
-<pre>&lt;ul class="menu">
-    &lt;li>&lt;a href="#up">&#8593;&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="#down">&#8595;&lt;/a>&lt;/li>
-&lt;/ul>
+
+<!-- Readme.md to html -->
+<h1>Documentation</h1>
+
+<h3>Basic Usage</h3>
+
+<p>Usage is very straightforward, simply include curtain.js file in the page, along with jQuery.</p>
+
+<pre><code>&lt;script src="js/libs/jquery.js"&gt;&lt;/script&gt;  
+&lt;script src="js/libs/curtain.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>And don't forget to add the base stylesheet</p>
+
+<pre><code>&lt;link rel="stylesheet" href="curtain.css"&gt;
+</code></pre>
+
+<p>Then call <code>$('.curtains').curtain();</code> to launch the plugin. You can add a set of optional options.</p>
+
+<h3>Options</h3>
+
+<p>Valid options for curtain.js are:</p>
+
+<ul>
+<li>
+<code>scrollSpeed</code> - Adjust the scroll speed (default <code>400</code>)</li>
+<li>
+<code>menu</code> - Bind event on "up" or "down" button (default <code>null</code>)</li>
+</ul><h3>Example</h3>
+
+<p>Setup the correct element structure:</p>
+
+<pre><code>&lt;ul class="menu"&gt;
+    &lt;li&gt;&lt;a href="#up"&gt;↑&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#down"&gt;↓&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;ol class="curtains"&gt;
     &lt;li class="cover"&gt; 
@@ -99,27 +115,48 @@
             &lt;li class="step"&gt; ... &lt;/li&gt; &lt;!-- make a break at this point with keyboard controls  --&gt;
         &lt;/ul&gt;
     &lt;/li&gt;
-&lt;/ol&gt;</pre>
+&lt;/ol&gt;
+</code></pre>
+
 <p>Then, you can launch the plugin:</p>
-<pre>$(function () {
+
+<pre><code>$(function () {
     $('.curtains').curtain({
         scrollSpeed: 600,
         menu: $('.menu')
     });
 });
-</pre>
-            <h1>Compatibility</h1>
-            <p>Tested in:<br>
-            iOs 5.0.1 (iPhone + iPad) <em>but the curtain effect is disabled</em><br>
-            Safari 5+<br>
-            Firefox 9+<br>
-            Chrome 17+<br>
-            </p>
-            <h1>Credits</h1>
-            <h2>Author</h2>
-            <p><a href="http://victorcoulon.fr">Victor Coulon</a> or ping me on twitter <a href="http://twitter.com/_victa">http://twitter.com/_victa</a></p>
-            <h2>Licence</h2>
-            <a href="http://www.opensource.org/licenses/mit-license.php">MIT</a>
+</code></pre>
+
+<h2>Compatibility</h2>
+
+<p>Tested in:</p>
+
+<ul>
+<li>iOs 5.0.1 (iPhone + iPad) <strong>but the curtain effect is disabled</strong>
+</li>
+<li>Safari 5+</li>
+<li>Firefox 9+</li>
+<li>Chrome 17+</li>
+</ul><h2>Credits</h2>
+
+<h3>Author</h3>
+
+<p><a href="http://victorcoulon.fr">Victor Coulon</a> or ping me on twitter <a href="http://twitter.com/_victa">http://twitter.com/_victa</a></p>
+
+<h3>Inspirations</h3>
+
+<ul>
+<li><a href="http://editsquarterly.com/">http://editsquarterly.com/</a></li>
+<li><a href="http://www.interviewmagazine.com">http://www.interviewmagazine.com</a></li>
+<li><a href="http://www.dbworks.pro/">http://www.dbworks.pro/</a></li>
+<li><a href="http://www.deuxhuithuit.com/en/">http://www.deuxhuithuit.com/en/</a></li>
+<li><a href="http://www.madebygrave.com/">http://www.madebygrave.com/</a></li>
+<li><a href="http://www.boston.com/bigpicture/">http://www.boston.com/bigpicture/</a></li>
+</ul><h3>Licence</h3>
+
+<p>Licence MIT</p>
+<!-- /Readme.md to html -->
         </div>
     </li>
     <li class="cover">
