@@ -39,10 +39,11 @@
             this.$element = $(this.element);
             this.$li = $(this.element).find('>li');
 
-            $.MobileDevice = ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i)));
-            $.Tablet = ((navigator.userAgent.match(/iPad/i)));
+            $.Android = (navigator.userAgent.match(/Android/i));
+            $.iPhone = ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)));
+            $.iPad = ((navigator.userAgent.match(/iPad/i)));
 
-            if($.Tablet || $.MobileDevice){
+            if($.iPhone || $.iPad || $.Android){
                 this.options.mobile = true;
                 this.$li.css({position:'relative'});
                 this.$element.find('.fixed').css({position:'absolute'});
@@ -51,7 +52,7 @@
             if(self.options.menu){
                 self.options.scrollButtons['up'] =  self.options.menu.find('[href="#up"]');
                 self.options.scrollButtons['down'] =  self.options.menu.find('[href="#down"]');
-                if(self.options.mobile){
+                if($.iPhone || $.iPad){
                     self.$element.css({
                         position:'fixed',
                         top:0,
