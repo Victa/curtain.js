@@ -324,6 +324,10 @@
            scrollSpeed: 600,
            menu: $('.menu')
        }); 
+       $('.btns').find('a').on('click', function(e){
+            e.preventDefault();
+            window.location.hash = $(this).attr('href');
+       });
     });
 </script>
 
