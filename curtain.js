@@ -27,6 +27,7 @@
 
         this._defaults = defaults;
         this._name = pluginName;
+        this._ignoreHashChange = false;
 
         this.init();
     }
@@ -142,6 +143,10 @@
 
                     if(docTop < currentP && $current.index() > 0){
                         // Scroll top
+                        self._ignoreHashChange = true;
+                        if($current.prev().attr('id'))
+                            window.location.hash = $current.prev().attr('id');
+                            
                         $current.removeClass('current').css({marginTop: 0})
                             .nextAll().css({display:'none'}).end()
                             .prev().addClass('current').css({display:'block'});
@@ -182,6 +187,10 @@
 
                     } else {
                         // Scroll bottom
+                        self._ignoreHashChange = true;
+                        if($current.next().attr('id'))
+                            window.location.hash = $current.next().attr('id');
+
                         $current.removeClass('current')
                             .css({display:'none'})
                             .next().addClass('current').nextAll().css({display:'block'});
@@ -308,7 +317,10 @@
 
             if ("onhashchange" in window) {
                 window.addEventListener("hashchange", function(){
-                    self.isHashIsOnList(location.hash.substring(1));
+                    if(self._ignoreHashChange === false){
+                        self.isHashIsOnList(location.hash.substring(1));
+                    }
+                    self._ignoreHashChange = false;
                 }, false);
             }
         },
