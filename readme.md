@@ -90,10 +90,11 @@ Compatibility
 -------------
 Tested in:
 
-* iOs 5.0.1 (iPhone + iPad) __but the curtain effect is disabled__
 * Safari 5+
 * Firefox 9+
 * Chrome 17+
+* iOs 5.0.1 (iPhone + iPad) __but the curtain effect is disabled__
+* Android (Chrome/Opera) __but the curtain effect is disabled__
 
 Credits
 -------------
