@@ -17,6 +17,7 @@ html{
     left: 0;
     width: 100%;
     min-height: 100%;
+    z-index: 99999;
     overflow: hidden;
     z-index:1;
     -webkit-backface-visibility:hidden; /* Remove if you got display issues */

@@ -54,8 +54,8 @@
             if(self.options.menu){
                 self.options.scrollButtons['up'] =  self.options.menu.find('[href="#up"]');
                 self.options.scrollButtons['down'] =  self.options.menu.find('[href="#down"]');
+
                 if(!$.iOs4 && ($.iPhone || $.iPad)){
-                    alert('ok');
                     self.$element.css({
                         position:'fixed',
                         top:0,
