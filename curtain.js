@@ -43,6 +43,7 @@
             $.Android = (navigator.userAgent.match(/Android/i));
             $.iPhone = ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)));
             $.iPad = ((navigator.userAgent.match(/iPad/i)));
+            $.iOs5 = navigator.userAgent.match(/OS 5_[0-9_]+ like Mac OS X/i) !== null;
 
             if($.iPhone || $.iPad || $.Android){
                 this.options.mobile = true;
@@ -53,7 +54,7 @@
             if(self.options.menu){
                 self.options.scrollButtons['up'] =  self.options.menu.find('[href="#up"]');
                 self.options.scrollButtons['down'] =  self.options.menu.find('[href="#down"]');
-                if($.iPhone || $.iPad){
+                if($.iOs5){
                     self.$element.css({
                         position:'fixed',
                         top:0,
