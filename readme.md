@@ -116,6 +116,21 @@ Then you can add a link anywhere to your first panel like:
 <a href="#myfirstpanel" class="curtain-links">Go to first panel</a>
 ```
 
+### Add a new panel dynamically
+
+You can add a new panel in your list dynamically. Simply use the public function called 'insert'.
+
+Example :
+
+```js
+var html = [
+    '<h1>My New Panel!</h1>'
+].join('');
+
+$('.curtains').data('plugin_curtain').insert({html:html, htmlId: 'newpannel', htmlClass: 'cover'});
+
+```
+
 Compatibility
 -------------
 
