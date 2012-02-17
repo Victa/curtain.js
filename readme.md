@@ -91,8 +91,8 @@ Then, you can launch the plugin:
 $(function () {
     $('.curtains').curtain({
         scrollSpeed: 600,
-        controls: $('.menu'),
-        curtainLinks: $('.curtain-links')
+        controls: '.menu),
+        curtainLinks: '.curtain-links'
     });
 });
 ```
