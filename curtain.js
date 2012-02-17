@@ -120,7 +120,15 @@
                     }, this.options.scrollSpeed);
                 }
 
-            } else{
+            } else if(direction === 'top'){
+                scrollEl.animate({
+                    scrollTop:0
+                }, self.options.scrollSpeed).scrollTop(0);
+            } else if(direction === 'bottom'){
+                scrollEl.animate({
+                    scrollTop:self.options.bodyHeight
+                }, self.options.scrollSpeed).scrollTop(0);
+            } else {
                 position = $("#"+direction).attr('data-position') || null;
                 if(position){
                     scrollEl.animate({
@@ -299,6 +307,18 @@
                 }
                 if(e.keyCode === 40 || e.keyCode === 39){
                     self.scrollToPosition('down');
+                    e.preventDefault();
+                    return false;
+                }
+                // Home button
+                if(e.keyCode === 36){
+                    self.scrollToPosition('top');
+                    e.preventDefault();
+                    return false;
+                }
+                // End button
+                if(e.keyCode === 35){
+                    self.scrollToPosition('bottom');
                     e.preventDefault();
                     return false;
                 }
