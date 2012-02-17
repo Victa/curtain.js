@@ -32,14 +32,15 @@ Documentation
 Usage is very straightforward, simply include curtain.js file in the page, along with jQuery.
 
 ```html
-    <script src="js/libs/jquery.js"></script>  
-    <script src="js/libs/curtain.js"></script>
+<script src="js/libs/jquery.js"></script>  
+<script src="js/libs/curtain.js"></script>
 ```
 
 And don't forget to add the base stylesheet
 
-    <link rel="stylesheet" href="curtain.css">
-
+```html
+<link rel="stylesheet" href="curtain.css">
+```
 Then call ``$('.curtains').curtain();`` to launch the plugin. You can add a set of optional options.
 
 ### Options
@@ -54,58 +55,62 @@ Valid options for curtain.js are:
 ### Example
 
 Setup the correct element structure:
+```html
+<ul class="menu">
+    <li><a href="#up">↑</a></li>
+    <li><a href="#down">↓</a></li>
+</ul>
 
-    <ul class="menu">
-        <li><a href="#up">↑</a></li>
-        <li><a href="#down">↓</a></li>
-    </ul>
-
-    <ol class="curtains">
-        <li id="myfirststep" class="cover"> 
-            your content
-        </li>
-        <li>
-             <div class="fixed"> <!-- if you need a "fixed" content -->
-                a fixed content
-            </div>
-            ...
-        </li>
-        <li class="cover">
-            <!-- a link to the first panel -->
-            <a href="myfirststep" class="curtain-links">Go to my first step</a>
-        </li>
-        <li >
-            <ul>
-                <li class="step"> ... </li> <!-- Add the class "step" to an element to  -->
-                <li class="step"> ... </li> <!-- make a break at this point with keyboard controls  -->
-            </ul>
-        </li>
-    </ol>
-  
+<ol class="curtains">
+    <li id="myfirststep" class="cover"> 
+        your content
+    </li>
+    <li>
+         <div class="fixed"> <!-- if you need a "fixed" content -->
+            a fixed content
+        </div>
+        ...
+    </li>
+    <li class="cover">
+        <!-- a link to the first panel -->
+        <a href="myfirststep" class="curtain-links">Go to my first step</a>
+    </li>
+    <li >
+        <ul>
+            <li class="step"> ... </li> <!-- Add the class "step" to an element to  -->
+            <li class="step"> ... </li> <!-- make a break at this point with keyboard controls  -->
+        </ul>
+    </li>
+</ol>
+```
 Then, you can launch the plugin:
-
-    $(function () {
-        $('.curtains').curtain({
-            scrollSpeed: 600,
-            controls: $('.menu'),
-            curtainLinks: $('.curtain-links')
-        });
+```js
+$(function () {
+    $('.curtains').curtain({
+        scrollSpeed: 600,
+        controls: $('.menu'),
+        curtainLinks: $('.curtain-links')
     });
-
+});
+```
 ### Add a link to a specific panel
 
 Simply add an id attribute to your panel:
 
-    <ol class="curtains">
-        <li id="myfirstpanel" class="cover"> 
-            your content
-        </li>
-        [...]
-    </ol>
+```html
+<ol class="curtains">
+    <li id="myfirstpanel" class="cover"> 
+        your content
+    </li>
+    [...]
+</ol>
+```
 
 Then you can add a link anywhere to your first panel like:
 
-    <a href="#myfirstpanel" class="curtain-links">Go to first panel</a>
+```html
+<a href="#myfirstpanel" class="curtain-links">Go to first panel</a>
+```
 
 Compatibility
 -------------
