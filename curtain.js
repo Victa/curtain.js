@@ -35,6 +35,28 @@
 
         this.init();
 
+        // Public Functions
+        this.insert = function(content){
+            if(Object.prototype.toString.call(content) !== '[object Object]') {
+                throw new TypeError('Content must be an object');
+            }
+
+            // append the content to list
+            var newEl = $(document.createElement('li'))
+                                .attr('id',content.id)
+                                .attr('class', content.class)
+                                .html(content.html);
+            $(self.element).append(newEl);
+
+            // re(init) cache elements
+            self.$element = $(self.element);
+            self.$li = $(self.element).find('>li');
+
+            self.setLinks();
+            $(window).load(function(){
+                self.setDimensions();
+            });
+        };
     }
 
     Plugin.prototype = {
