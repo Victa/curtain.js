@@ -16,7 +16,7 @@
             mobile: false,
             scrollButtons: {},
             controls: null,
-            curtainLinks: null
+            curtainLinks: $('.curtain-links')
         };
 
     // The actual plugin constructor
