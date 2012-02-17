@@ -42,10 +42,9 @@
             }
 
             // append the content to list
-            var newEl = $(document.createElement('li'))
-                                .attr('id',content.id)
-                                .attr('class', content.class)
-                                .html(content.html);
+            var newEl = $(document.createElement('li')).attr('id', (content.htmlId) ? content.htmlId : null)
+                                .attr('class', (content.htmlClass) ? content.htmlClass : null)
+                                .html( (content.html) ? content.html : null );
             $(self.element).append(newEl);
 
             // re(init) cache elements
