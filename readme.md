@@ -91,7 +91,7 @@ Then, you can launch the plugin:
 $(function () {
     $('.curtains').curtain({
         scrollSpeed: 600,
-        controls: '.menu),
+        controls: '.menu',
         curtainLinks: '.curtain-links'
     });
 });
@@ -124,12 +124,19 @@ Example :
 
 ```js
 var html = [
-    '<h1>My New Panel!</h1>'
+    '<h1>My New Panel!</h1>',
+    '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>'
 ].join('');
 
-$('.curtains').data('plugin_curtain').insert({html:html, htmlId: 'newpannel', htmlClass: 'cover'});
+$('.curtains').data('plugin_curtain').insert({
+    html:html,
+    htmlId: 'newpannel',
+    htmlClass: 'cover'
+});
 
 ```
+
+**The ``id`` and the ``class`` attribute optional.**
 
 Compatibility
 -------------
