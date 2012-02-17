@@ -46,6 +46,8 @@ Valid options for curtain.js are:
 
 * ``scrollSpeed`` - Adjust the scroll speed (default ``400``)
 * ``menu`` - Bind event on "up" or "down" button (default ``null``)
+* ``curtainLinks`` - If you want add a ``<a>`` (or multiple) link to a specific panel simply add a jquery selector to this option. Take a look of the example bellow.(default ``null``)
+
 
 ### Example
 
@@ -57,7 +59,7 @@ Setup the correct element structure:
     </ul>
 
     <ol class="curtains">
-        <li class="cover"> 
+        <li id="myfirststep" class="cover"> 
             your content
         </li>
         <li>
@@ -67,7 +69,8 @@ Setup the correct element structure:
             ...
         </li>
         <li class="cover">
-            ...
+            <!-- a link to the first panel -->
+            <a href="myfirststep" class="curtain-links">Go to my first step</a>
         </li>
         <li >
             <ul>
@@ -82,9 +85,25 @@ Then, you can launch the plugin:
     $(function () {
         $('.curtains').curtain({
             scrollSpeed: 600,
-            menu: $('.menu')
+            controls: $('.menu'),
+            curtainLinks: $('.curtain-links')
         });
     });
+
+### Add a link to a specific panel
+
+Simply add an id attribute to your panel:
+
+    <ol class="curtains">
+        <li id="myfirstpanel" class="cover"> 
+            your content
+        </li>
+        [...]
+    </ol>
+
+Then you can add a link anywhere to your first panel like:
+
+    <a href="#myfirstpanel" class="curtain-links">Go to first panel</a>
 
 Compatibility
 -------------
@@ -103,6 +122,7 @@ Credits
 [Victor Coulon](http://victorcoulon.fr) or ping me on twitter http://twitter.com/_victa
 
 ### Inspirations
+
 
 * http://editsquarterly.com/
 * http://www.interviewmagazine.com
