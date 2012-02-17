@@ -91,7 +91,7 @@ $(function () {
 ```
 ## Features
 
-### Add a Top and Down button
+### Add a "next" and "prev" link
 
 Insert your menu in your html document. You must use ``href="#up"`` and ``href="#down"``.
 
