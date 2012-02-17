@@ -49,7 +49,7 @@ Valid options for curtain.js are:
 
 * ``scrollSpeed`` - Adjust the scroll speed (default ``400``)
 * ``menu`` - Bind event on "up" or "down" button (default ``null``)
-* ``curtainLinks`` - If you want add a ``<a>`` (or multiple) link to a specific panel simply add a jquery selector to this option. Take a look of the example bellow.(default ``null``)
+* ``curtainLinks`` - If you want add a ``<a>`` (or multiple) link to a specific panel simply add a class name to this option. Take a look of the example bellow.(default ``'.curtain-links'``)
 
 
 ### Example
@@ -91,7 +91,7 @@ Then, you can launch the plugin:
 $(function () {
     $('.curtains').curtain({
         scrollSpeed: 600,
-        controls: '.menu),
+        controls: '.menu',
         curtainLinks: '.curtain-links'
     });
 });
