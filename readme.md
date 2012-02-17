@@ -57,24 +57,18 @@ Valid options for curtain.js are:
 Setup the correct element structure:
 
 ```html
-<ul class="menu">
-    <li><a href="#up">↑</a></li>
-    <li><a href="#down">↓</a></li>
-</ul>
-
 <ol class="curtains">
-    <li id="myfirststep" class="cover"> 
+    <li class="cover"> 
         your content
     </li>
     <li>
-         <div class="fixed"> <!-- if you need a "fixed" content -->
+        <div class="fixed"> <!-- if you need a "fixed" content -->
             a fixed content
         </div>
-        ...
+        [...]
     </li>
     <li class="cover">
-        <!-- a link to the first panel -->
-        <a href="myfirststep" class="curtain-links">Go to my first step</a>
+       [...]
     </li>
     <li >
         <ul>
@@ -90,9 +84,31 @@ Then, you can launch the plugin:
 ```js
 $(function () {
     $('.curtains').curtain({
-        scrollSpeed: 600,
-        controls: '.menu',
-        curtainLinks: '.curtain-links'
+        scrollSpeed: 400
+    });
+});
+
+```
+## Features
+
+### Add a Top and Down button
+
+Insert your menu in your html document. You must use ``href="#up"`` and ``href="#down"``.
+
+```html
+<ul class="menu">
+    <li><a href="#up">↑</a></li>
+    <li><a href="#down">↓</a></li>
+</ul>
+```
+
+Then, you can launch the plugin and specify the class of your menu.
+
+```js
+$(function () {
+    $('.curtains').curtain({
+        scrollSpeed: 400,
+        controls: '.menu'
     });
 });
 ```
@@ -113,14 +129,30 @@ Simply add an id attribute to your panel:
 Then you can add a link anywhere to your first panel like:
 
 ```html
-<a href="#myfirstpanel" class="curtain-links">Go to first panel</a>
+<ol class="curtains">
+    [...]
+    <li class="cover">
+       <a href="#myfirstpanel" class="curtain-links">Go to first panel</a>
+    </li>
+</ol>
+```
+
+
+Then, you can launch the plugin and specify the class of your links.
+
+```js
+$(function () {
+    $('.curtains').curtain({
+        scrollSpeed: 400,
+        curtainLinks: '.curtain-links'
+    });
+});
 ```
 
 ### Add a new panel dynamically
 
 You can add a new panel in your list dynamically. Simply use the public function called 'insert'.
 
-Example :
 
 ```js
 var html = [
@@ -136,7 +168,7 @@ $('.curtains').data('plugin_curtain').insert({
 
 ```
 
-**The ``id`` and the ``class`` attribute optional.**
+**The ``id`` and the ``class`` attribute are optionals.**
 
 Compatibility
 -------------
