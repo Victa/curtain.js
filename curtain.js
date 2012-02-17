@@ -15,11 +15,13 @@
             linksArray: [],
             mobile: false,
             scrollButtons: {},
-            menu: null
+            controls: null,
+            curtainLinks: null
         };
 
     // The actual plugin constructor
     function Plugin( element, options ) {
+        // Public attributes
         this.element = element;
         this.options = $.extend( {}, defaults, options) ;
 
@@ -51,9 +53,9 @@
                 this.$element.find('.fixed').css({position:'absolute'});
             }
 
-            if(self.options.menu){
-                self.options.scrollButtons['up'] =  self.options.menu.find('[href="#up"]');
-                self.options.scrollButtons['down'] =  self.options.menu.find('[href="#down"]');
+            if(self.options.controls){
+                self.options.scrollButtons['up'] =  self.options.controls.find('[href="#up"]');
+                self.options.scrollButtons['down'] =  self.options.controls.find('[href="#down"]');
 
                 if(!$.iOs4 && ($.iPhone || $.iPad)){
                     self.$element.css({
@@ -65,7 +67,7 @@
                         '-webkit-overflow-scrolling':'touch',
                         overflow:'auto'
                     });
-                    self.options.menu.css({position:'absolute'});
+                    self.options.controls.css({position:'absolute'});
                 }
             }
 
@@ -315,6 +317,25 @@
                         self.scrollToPosition('down');
                     });
                 }
+            }
+
+            if(self.options.curtainLinks){
+                self.options.curtainLinks.on('click', function(e){
+                    e.preventDefault();
+                    var href = $(this).attr('href'),
+                        scrollEl = (self.options.mobile) ? self.$element : $('body, html');
+                    
+                    if(!self.isHashIsOnList(href.substring(1)) && position)
+                        return false;
+
+                    var position = $(href).attr('data-position') || null;
+                    if(position){
+                        scrollEl.animate({
+                            scrollTop:position
+                        }, self.options.scrollSpeed).scrollTop(position);
+                    }
+                    return false;
+                });
             }
 
             if ("onhashchange" in window) {
