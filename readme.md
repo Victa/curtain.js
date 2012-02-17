@@ -55,6 +55,7 @@ Valid options for curtain.js are:
 ### Example
 
 Setup the correct element structure:
+
 ```html
 <ul class="menu">
     <li><a href="#up">↑</a></li>
@@ -83,7 +84,9 @@ Setup the correct element structure:
     </li>
 </ol>
 ```
+
 Then, you can launch the plugin:
+
 ```js
 $(function () {
     $('.curtains').curtain({
@@ -93,6 +96,7 @@ $(function () {
     });
 });
 ```
+
 ### Add a link to a specific panel
 
 Simply add an id attribute to your panel:
