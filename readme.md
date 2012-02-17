@@ -118,12 +118,12 @@ Then you can add a link anywhere to your first panel like:
 
 Compatibility
 -------------
-Tested in:
 
-* Safari 5+
-* Firefox 9+
-* Chrome 17+
-* iOs 5.0.1 (iPhone + iPad) __but the curtain effect is disabled__
+* Safari
+* Firefox
+* Chrome
+* IE7/IE8/IE9
+* iOs (iPhone/iPad) __but the curtain effect is disabled__
 * Android (Chrome/Opera) __but the curtain effect is disabled__
 
 
