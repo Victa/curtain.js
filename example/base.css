@@ -16,17 +16,17 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 /* Base Style */
 body {
     font: 16px/1.2 "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    color: #444;
+    color: #555;
 }
 
 a{color:#AAA}
 a:hover{color:#CCC}
 img{max-width:100%}
-h1{font-size:28px;margin-bottom:16px}
-h2{font-size:22px;margin-bottom:12px}
+h1{font-size:30px;margin-bottom:16px;color:#111;}
+h2{font-size:26px;margin-bottom:12px;color:#111;padding-top:8px;}
 p{margin-bottom:12px}
 pre,code{color:#666;font-family:"Andale Mono", AndaleMono, monospace;font-size:12px}
-h3{font-size:20px;margin-bottom:12px}
+h3{font-size:20px;margin-bottom:12px;color:#111;padding-top:8px;}
 em{font-style:italic}
 pre {
     display: block;

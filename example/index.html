@@ -51,8 +51,8 @@
                 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
             </p>
             <div class="btns">
-                <a href="#download" class="btn btn-small">Download</a>
-                <a href="#instructions" class="btn btn-small">Instructions</a>
+                <a href="#download" class="btn btn-small curtain-links">Download</a>
+                <a href="#instructions" class="btn btn-small curtain-links">Instructions</a>
             </div>
         </div>
 
@@ -86,7 +86,9 @@
 <li>
 <code>scrollSpeed</code> - Adjust the scroll speed (default <code>400</code>)</li>
 <li>
-<code>menu</code> - Bind event on "up" or "down" button (default <code>null</code>)</li>
+<code>controls</code> - Bind event on "up" or "down" button (default <code>null</code>)</li>
+<li><code>curtainLinks</code> - If you want add  a <code>&lt;a&gt;</code> (or multiple) link to a specific panel simply add a jquery
+selector to this option. Take a look of the example bellow.(default <code>null</code>)</li>
 </ul><h3>Example</h3>
 
 <p>Setup the correct element structure:</p>
@@ -96,7 +98,7 @@
     &lt;li&gt;&lt;a href="#down"&gt;↓&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;ol class="curtains"&gt;
+&lt;ol id="myfirststep" class="curtains"&gt;
     &lt;li class="cover"&gt; 
         your content
     &lt;/li&gt;
@@ -107,7 +109,7 @@
         ...
     &lt;/li&gt;
     &lt;li class="cover"&gt;
-        ...
+        &lt;a href="myfirststep" class="curtain-links">Go to my first step&lt;/a>
     &lt;/li&gt;
     &lt;li &gt;
         &lt;ul&gt;
@@ -123,10 +125,25 @@
 <pre><code>$(function () {
     $('.curtains').curtain({
         scrollSpeed: 600,
-        menu: $('.menu')
+        controls: $('.menu'),
+        curtainLinks: $('.curtain-links')
     });
 });
 </code></pre>
+
+<h3>Add a link to a specific panel</h3>
+<p>Simply add an id attribute to your panel:</p>
+
+<pre><code>&lt;ol class="curtains">
+    &lt;li id="myfirstpanel" class="cover"> 
+        your content
+    &lt;/li>
+    [...]
+&lt;/ol></code></pre>
+
+<p>Then you can add a link anywhere to your first panel like:</p>
+
+<pre><code>&lt;a href="#myfirstpanel" class="curtain-links">Go to first panel&lt;/a></code></pre>
 
 <h2>Compatibility</h2>
 
@@ -141,7 +158,6 @@
 </ul><h2>Credits</h2>
 
 <h3>Author</h3>
-
 <p><a href="http://victorcoulon.fr">Victor Coulon</a> or ping me on twitter <a href="http://twitter.com/_victa">http://twitter.com/_victa</a></p>
 
 <h3>Inspirations</h3>
@@ -243,6 +259,7 @@
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+            <a href="#instructions" class="curtain-links">intro</a>
         </div>
     </li>
     <li>
@@ -321,12 +338,9 @@
 <script>
     $(function(){
        $('.curtains').curtain({
-           scrollSpeed: 600,
-           menu: $('.menu')
-       }); 
-       $('.btns').find('a').on('click', function(e){
-            e.preventDefault();
-            window.location.hash = $(this).attr('href');
+           scrollSpeed: 300,
+           controls: $('.menu'),
+           curtainLinks: $('.curtain-links')
        });
     });
 </script>
