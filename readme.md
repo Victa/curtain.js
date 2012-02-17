@@ -31,8 +31,10 @@ Documentation
 
 Usage is very straightforward, simply include curtain.js file in the page, along with jQuery.
 
+```html
     <script src="js/libs/jquery.js"></script>  
     <script src="js/libs/curtain.js"></script>
+```
 
 And don't forget to add the base stylesheet
 
