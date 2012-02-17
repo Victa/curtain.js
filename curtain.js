@@ -16,11 +16,13 @@
             mobile: false,
             scrollButtons: {},
             controls: null,
-            curtainLinks: $('.curtain-links')
+            curtainLinks: '.curtain-links'
         };
 
     // The actual plugin constructor
     function Plugin( element, options ) {
+        var self = this;
+
         // Public attributes
         this.element = element;
         this.options = $.extend( {}, defaults, options) ;
@@ -32,6 +34,7 @@
         this._ignoreHashChange = false;
 
         this.init();
+
     }
 
     Plugin.prototype = {
@@ -54,8 +57,8 @@
             }
 
             if(self.options.controls){
-                self.options.scrollButtons['up'] =  self.options.controls.find('[href="#up"]');
-                self.options.scrollButtons['down'] =  self.options.controls.find('[href="#down"]');
+                self.options.scrollButtons['up'] =  $(self.options.controls).find('[href="#up"]');
+                self.options.scrollButtons['down'] =  $(self.options.controls).find('[href="#down"]');
 
                 if(!$.iOs4 && ($.iPhone || $.iPad)){
                     self.$element.css({
@@ -67,7 +70,7 @@
                         '-webkit-overflow-scrolling':'touch',
                         overflow:'auto'
                     });
-                    self.options.controls.css({position:'absolute'});
+                    $(self.options.controls).css({position:'absolute'});
                 }
             }
 
@@ -340,7 +343,7 @@
             }
 
             if(self.options.curtainLinks){
-                self.options.curtainLinks.on('click', function(e){
+                self.$element.on('click', self.options.curtainLinks, function(e){
                     e.preventDefault();
                     var href = $(this).attr('href'),
                         scrollEl = (self.options.mobile) ? self.$element : $('body, html');
