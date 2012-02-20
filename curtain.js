@@ -364,7 +364,7 @@
             }
 
             if(self.options.curtainLinks){
-                self.$element.on('click', self.options.curtainLinks, function(e){
+                $(self.options.curtainLinks).on('click', function(e){
                     e.preventDefault();
                     var href = $(this).attr('href'),
                         scrollEl = (self.options.mobile) ? self.$element : $('body, html');
