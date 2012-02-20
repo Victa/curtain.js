@@ -184,7 +184,7 @@ Compatibility
 Roadmap
 -------------
 
-* Remove dynamically
+* Remove panels dynamically
 * Better android default browser support
 
 Credits
