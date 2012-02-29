@@ -60,6 +60,12 @@
             self.$element = $(self.element);
             self.$li = $(self.element).find('>li');
 
+            // Mobile Fix
+            if(self.options.mobile){
+                self.$li.css({position:'relative'});
+                self.$element.find('.fixed').css({position:'absolute'});
+            }
+
             self.setLinks();
 
             // Set dimensions after loading images
@@ -80,6 +86,7 @@
                     }, self.options.scrollSpeed).scrollTop(position);
                 });
             }
+
         };
     }
 
@@ -90,7 +97,6 @@
             // Cache element
             this.$element = $(this.element);
             this.$li = $(this.element).find('>li');
-            this.scrollEl = (this.options.mobile) ? this.$element : $('body, html');
 
             $.Android = (navigator.userAgent.match(/Android/i));
             $.iPhone = ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)));
@@ -102,6 +108,8 @@
                 this.$li.css({position:'relative'});
                 this.$element.find('.fixed').css({position:'absolute'});
             }
+
+            this.scrollEl = (this.options.mobile) ? this.$element : $('body, html');
 
             if(self.options.controls){
                 self.options.scrollButtons['up'] =  $(self.options.controls).find('[href="#up"]');
