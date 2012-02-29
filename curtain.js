@@ -40,6 +40,7 @@
             if(Object.prototype.toString.call(content) !== '[object Object]') {
                 throw new TypeError('Content must be an object');
             }
+            content.goTo = (content.goTo === true) ? true : false;
 
             // append the content to list
             var newEl = $(document.createElement('li')).attr('id', (content.htmlId) ? content.htmlId : null)
@@ -47,14 +48,38 @@
                                 .html( (content.html) ? content.html : null );
             $(self.element).append(newEl);
 
+
+            // Append Content after an element OR at the end
+            if(content.insertAfter && $(content.insertAfter).length) {
+                $(self.element).find(content.insertAfter).after(newEl);
+            } else {
+                $(self.element).append(newEl);
+            }
+
             // re(init) cache elements
             self.$element = $(self.element);
             self.$li = $(self.element).find('>li');
 
             self.setLinks();
-            $(window).load(function(){
+
+            // Set dimensions after loading images
+            if($(newEl).find('img').length){
+                $(newEl).find('img').load(function(){
+                    self.setDimensions();
+                });
+            } else {
                 self.setDimensions();
-            });
+            }
+
+            // Scroll the new element
+            if(content.goTo === true){
+                self.readyElement($(newEl), function(){
+                    var position = $(newEl).attr('data-position') || null;
+                    self.scrollEl.animate({
+                        scrollTop:position
+                    }, self.options.scrollSpeed).scrollTop(position);
+                });
+            }
         };
     }
 
@@ -65,6 +90,7 @@
             // Cache element
             this.$element = $(this.element);
             this.$li = $(this.element).find('>li');
+            this.scrollEl = (this.options.mobile) ? this.$element : $('body, html');
 
             $.Android = (navigator.userAgent.match(/Android/i));
             $.iPhone = ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)));
@@ -113,8 +139,7 @@
         // Events
         scrollToPosition: function (direction){
             var position = null,
-                self = this,
-                scrollEl = (this.options.mobile) ? this.$element : $('body, html');
+                self = this;
 
             if($('html, body').is(':animated')){
                 return false;
@@ -139,23 +164,23 @@
                 }
 
                 if(position){
-                    scrollEl.animate({
+                    self.scrollEl.animate({
                         scrollTop:position
                     }, this.options.scrollSpeed);
                 }
 
             } else if(direction === 'top'){
-                scrollEl.animate({
+                self.scrollEl.animate({
                     scrollTop:0
                 }, self.options.scrollSpeed).scrollTop(0);
             } else if(direction === 'bottom'){
-                scrollEl.animate({
+                self.scrollEl.animate({
                     scrollTop:self.options.bodyHeight
                 }, self.options.scrollSpeed).scrollTop(0);
             } else {
                 position = $("#"+direction).attr('data-position') || null;
                 if(position){
-                    scrollEl.animate({
+                    self.scrollEl.animate({
                         scrollTop:position
                     }, this.options.scrollSpeed).scrollTop(position);
                 }
@@ -366,15 +391,14 @@
             if(self.options.curtainLinks){
                 $(self.options.curtainLinks).on('click', function(e){
                     e.preventDefault();
-                    var href = $(this).attr('href'),
-                        scrollEl = (self.options.mobile) ? self.$element : $('body, html');
+                    var href = $(this).attr('href');
                     
                     if(!self.isHashIsOnList(href.substring(1)) && position)
                         return false;
 
                     var position = $(href).attr('data-position') || null;
                     if(position){
-                        scrollEl.animate({
+                        self.scrollEl.animate({
                             scrollTop:position
                         }, self.options.scrollSpeed).scrollTop(position);
                     }
@@ -418,6 +442,14 @@
                     return false;
                 }
             });
+        },
+        readyElement: function(el,callback){
+          var interval = setInterval(function(){
+            if(el.length){
+              callback(el.length);
+              clearInterval(interval);
+            }
+          },60);
         }
     };
 
