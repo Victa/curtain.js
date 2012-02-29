@@ -56,36 +56,38 @@
                 $(self.element).append(newEl);
             }
 
-            // re(init) cache elements
-            self.$element = $(self.element);
-            self.$li = $(self.element).find('>li');
 
-            // Mobile Fix
-            if(self.options.mobile){
-                self.$li.css({position:'relative'});
-                self.$element.find('.fixed').css({position:'absolute'});
-            }
+            // When the element is ready
+            self.readyElement($(newEl), function(){
+                // re(init) cache elements
+                self.$element = $(self.element);
+                self.$li = $(self.element).find('>li');
 
-            self.setLinks();
+                // Mobile Fix
+                if(self.options.mobile){
+                    self.$li.css({position:'relative'});
+                    self.$element.find('.fixed').css({position:'absolute'});
+                }
+                
+                self.setLinks();
 
-            // Set dimensions after loading images
-            if($(newEl).find('img').length){
-                $(newEl).find('img').load(function(){
+                // Set dimensions after loading images (or not)
+                if($(newEl).find('img').length){
+                    $(newEl).find('img').load(function(){
+                        self.setDimensions();
+                    });
+                } else {
                     self.setDimensions();
-                });
-            } else {
-                self.setDimensions();
-            }
+                }
 
-            // Scroll the new element
-            if(content.goTo === true){
-                self.readyElement($(newEl), function(){
+                // Scroll to the new element
+                if(content.goTo === true){
                     var position = $(newEl).attr('data-position') || null;
                     self.scrollEl.animate({
                         scrollTop:position
                     }, self.options.scrollSpeed).scrollTop(position);
-                });
-            }
+                }
+            });
 
         };
     }
