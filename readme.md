@@ -193,6 +193,10 @@ Credits
 ### Author
 [Victor Coulon](http://victorcoulon.fr) or ping me on twitter http://twitter.com/_victa
 
+### Contributors
+
+* [Francis Thomas](http://francisthomas.fr/)
+
 ### Inspirations
 
 
