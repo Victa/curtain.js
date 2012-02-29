@@ -18,14 +18,12 @@ We were also such inspired by the following websites:
 
 Feel free to fork the project on github or ping me on [twitter](http://twitter.com/_victa) for any comments.
 
-Demonstrations
--------------
+## Demonstrations
 
 * [Demo website](http://curtain.victorcoulon.fr)
 * [Artographik](http://artographik.fr/) (upcomming website)
 
-Documentation
--------------
+## Documentation
 
 ### Basic Usage
 
@@ -172,8 +170,8 @@ $('.curtains').data('plugin_curtain').insert({
 
 **``id``, ``class``, ``insertAfter`` and ``goTo`` attributes are optional.**
 
-Compatibility
--------------
+
+## Compatibility
 
 * Safari
 * Firefox
@@ -183,14 +181,13 @@ Compatibility
 * Android (Chrome/Opera) __but the curtain effect is disabled__
 
 
-Roadmap
--------------
+## Roadmap
 
 * Remove panels dynamically
 * Better android default browser support
+* scroll horizontally
 
-Credits
--------------
+## Credits
 
 ### Author
 [Victor Coulon](http://victorcoulon.fr) or ping me on twitter http://twitter.com/_victa
