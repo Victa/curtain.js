@@ -170,7 +170,7 @@ $('.curtains').data('plugin_curtain').insert({
 
 ```
 
-**The ``id`` and the ``class`` attribute are optionals.**
+**``id``, ``class``, ``insertAfter`` and ``goTo`` attributes are optional.**
 
 Compatibility
 -------------
