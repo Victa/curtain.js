@@ -161,7 +161,7 @@ var html = [
 $('.curtains').data('plugin_curtain').insert({
     html:html,
     htmlId: 'newpannel',
-    htmlClass: 'cover'
+    htmlClass: 'cover',
     insertAfter:'#intro', // If null, the content is inserted at the end
     goTo: false // Go to the new panel directly after the insertion (default: true)
 });
