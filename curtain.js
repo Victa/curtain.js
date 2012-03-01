@@ -1,7 +1,7 @@
 /*
 * Curtain.js - Create an unique page transitioning system
 * ---
-* Version: 1.2.1
+* Version: 1.2.3
 * Copyright 2011, Victor Coulon (http://victorcoulon.fr)
 * Released under the MIT Licence
 */
@@ -26,8 +26,6 @@
         // Public attributes
         this.element = element;
         this.options = $.extend( {}, defaults, options) ;
-
-        this.didScroll = false;
 
         this._defaults = defaults;
         this._name = pluginName;
@@ -111,7 +109,13 @@
                 this.$element.find('.fixed').css({position:'absolute'});
             }
 
-            this.scrollEl = (this.options.mobile) ? this.$element : $('body, html');
+            if(this.options.mobile){
+               this.scrollEl =  this.$element;
+            } else if($.browser.mozilla || $.browser.msie) {
+                this.scrollEl = $('html');
+            } else {
+                this.scrollEl = $('body');
+            }
 
             if(self.options.controls){
                 self.options.scrollButtons['up'] =  $(self.options.controls).find('[href="#up"]');
@@ -200,111 +204,102 @@
         scrollEvent: function() {
             var self = this;
 
-            setInterval(function() {
-                if ( self.didScroll ) {
-                    self.didScroll = false;
-                
-                    var docTop = $(document).scrollTop(),
-                        $current = self.$element.find('.current'),
-                        $fixed = $current.find('.fixed'),
-                        $step = $current.find('.step'),
-                        currentP = parseInt($current.attr('data-position'), 10),
-                        currentHeight = parseInt($current.attr('data-height'), 10),
-                        windowHeight = $(window).height();
 
-                    if(docTop < currentP && $current.index() > 0){
-                        // Scroll top
-                        self._ignoreHashChange = true;
-                        if($current.prev().attr('id'))
-                            window.location.hash = $current.prev().attr('id');
-                            
-                        $current.removeClass('current').css({marginTop: 0})
-                            .nextAll().css({display:'none'}).end()
-                            .prev().addClass('current').css({display:'block'});
+            var docTop = $(document).scrollTop(),
+                $current = self.$element.find('.current'),
+                $fixed = $current.find('.fixed'),
+                $step = $current.find('.step'),
+                currentP = parseInt($current.attr('data-position'), 10),
+                currentHeight = parseInt($current.attr('data-height'), 10),
+                windowHeight = $(window).height();
 
-                    } else if(docTop < (currentP + $current.height())){
-                        // Animate the current pannel during the scroll
-                        $current.css({marginTop:-(docTop-currentP)});
+            if(docTop < currentP && $current.index() > 0){
+                // Scroll top
+                self._ignoreHashChange = true;
+                if($current.prev().attr('id'))
+                    window.location.hash = $current.prev().attr('id');
+                    
+                $current.removeClass('current').css({marginTop: 0})
+                    .nextAll().css({display:'none'}).end()
+                    .prev().addClass('current').css({display:'block'});
 
-                        // If there is a fixed element in the current panel
-                        if($fixed.length){
-                            var dataTop = parseInt($fixed.attr('data-top'), 10);
-                            if((docTop-currentP+windowHeight) >= currentHeight && $fixed.css('position') === 'fixed'){
-                                $fixed.css({
-                                    position: 'absolute',
-                                    top: Math.abs(docTop-currentP + dataTop)
-                                });
+            } else if(docTop < (currentP + $current.height())){
+                // Animate the current pannel during the scroll
+                $current.css({marginTop:-(docTop-currentP)});
 
-                            } else if((docTop-currentP+windowHeight) <= currentHeight && $fixed.css('position') === 'absolute'){
-                                $fixed.css({
-                                    position: 'fixed',
-                                    top: dataTop
-                                });
-                            }
-                        }
+                // If there is a fixed element in the current panel
+                if($fixed.length){
+                    var dataTop = parseInt($fixed.attr('data-top'), 10);
+                    if((docTop-currentP+windowHeight) >= currentHeight && $fixed.css('position') === 'fixed'){
+                        $fixed.css({
+                            position: 'absolute',
+                            top: Math.abs(docTop-currentP + dataTop)
+                        });
 
-                        
-                        // If there is a step element in the current panel
-                        if($step.length){
-                            $.each($step, function(i,el){
-                                if($(el).offset().top <= docTop+5 && ($(el).offset().top + $(el).outerHeight()) >= docTop+5){
-                                    if(!$(el).hasClass('current-step')){
-                                        $step.removeClass('current-step');
-                                        $(el).addClass('current-step');
-                                    }
-                                }
-                            });
-                        }
-
-                    } else {
-                        // Scroll bottom
-                        self._ignoreHashChange = true;
-                        if($current.next().attr('id'))
-                            window.location.hash = $current.next().attr('id');
-
-                        $current.removeClass('current')
-                            .css({display:'none'})
-                            .next().addClass('current').nextAll().css({display:'block'});
+                    } else if((docTop-currentP+windowHeight) <= currentHeight && $fixed.css('position') === 'absolute'){
+                        $fixed.css({
+                            position: 'fixed',
+                            top: dataTop
+                        });
                     }
                 }
-            }, 5);
+
+                
+                // If there is a step element in the current panel
+                if($step.length){
+                    $.each($step, function(i,el){
+                        if($(el).offset().top <= docTop+5 && ($(el).offset().top + $(el).outerHeight()) >= docTop+5){
+                            if(!$(el).hasClass('current-step')){
+                                $step.removeClass('current-step');
+                                $(el).addClass('current-step');
+                            }
+                        }
+                    });
+                }
+
+            } else {
+                // Scroll bottom
+                self._ignoreHashChange = true;
+                if($current.next().attr('id'))
+                    window.location.hash = $current.next().attr('id');
+
+                $current.removeClass('current')
+                    .css({display:'none'})
+                    .next().addClass('current').nextAll().css({display:'block'});
+            }
+
 
         },
         scrollMobileEvent: function() {
             var self = this;
 
-            setInterval(function() {
-                if ( self.didScroll ) {
-                    self.didScroll = false;
-                
-                    var docTop = self.$element.scrollTop(),
-                        $current = self.$element.find('.current'),
-                        $step = $current.find('.step'),
-                        currentP = parseInt($current.attr('data-position'), 10),
-                        currentHeight = parseInt($current.attr('data-height'), 10),
-                        windowHeight = $(window).height();
+            var docTop = self.$element.scrollTop(),
+                $current = self.$element.find('.current'),
+                $step = $current.find('.step'),
+                currentP = parseInt($current.attr('data-position'), 10),
+                currentHeight = parseInt($current.attr('data-height'), 10),
+                windowHeight = $(window).height();
 
-                    if(docTop+10 < currentP && $current.index() > 0){
-                        $current.removeClass('current').prev().addClass('current');
-                    } else if(docTop+10 < (currentP + $current.height())){
-    
-                        // If there is a step element in the current panel
-                        if($step.length){
-                            $.each($step, function(i,el){
-                                if(($(el).position().top+currentP) <= docTop && (($(el).position().top+currentP) + $(el).outerHeight()) >= docTop){
-                                    if(!$(el).hasClass('current-step')){
-                                        $step.removeClass('current-step');
-                                        $(el).addClass('current-step');
-                                    }
-                                }
-                            });
+            if(docTop+10 < currentP && $current.index() > 0){
+                $current.removeClass('current').prev().addClass('current');
+            } else if(docTop+10 < (currentP + $current.height())){
+
+                // If there is a step element in the current panel
+                if($step.length){
+                    $.each($step, function(i,el){
+                        if(($(el).position().top+currentP) <= docTop && (($(el).position().top+currentP) + $(el).outerHeight()) >= docTop){
+                            if(!$(el).hasClass('current-step')){
+                                $step.removeClass('current-step');
+                                $(el).addClass('current-step');
+                            }
                         }
-
-                    } else {
-                        $current.removeClass('current').next().addClass('current');
-                    }
+                    });
                 }
-            }, 5);
+
+            } else {
+                $current.removeClass('current').next().addClass('current');
+            }
+
 
         },
         // Setters
@@ -348,12 +343,10 @@
 
             if(self.options.mobile) {
                 self.$element.on('scroll', function(){
-                    self.didScroll = true;
                     self.scrollMobileEvent();
                 });
             } else {
                 $(window).on('scroll', function(){
-                    self.didScroll = true;
                     self.scrollEvent();
                 });
             }
