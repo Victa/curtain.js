@@ -23,6 +23,10 @@ Feel free to fork the project on github or ping me on [twitter](http://twitter.c
 * [Demo website](http://curtain.victorcoulon.fr)
 * [Artographik](http://artographik.fr/) (upcomming website)
 
+### Site using Curtain.js
+
+* http://www.visualstoryteller.nl/
+
 ## Documentation
 
 ### Basic Usage
