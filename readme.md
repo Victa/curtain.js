@@ -200,7 +200,8 @@ $('.curtains').data('plugin_curtain').insert({
 
 * [Francis Thomas](http://francisthomas.fr/)
 * [John Brown](http://www.thisisjohnbrown.com/)
-* 
+
+
 ### Inspirations
 
 
