@@ -16,7 +16,8 @@
             mobile: false,
             scrollButtons: {},
             controls: null,
-            curtainLinks: '.curtain-links'
+            curtainLinks: '.curtain-links',
+            enableKeys: true
         };
 
     // The actual plugin constructor
@@ -350,31 +351,33 @@
                     self.scrollEvent();
                 });
             }
-
-            $(document).on('keydown', function(e){
-                if(e.keyCode === 38 || e.keyCode === 37) {
-                    self.scrollToPosition('up');
-                    e.preventDefault();
-                    return false;
-                }
-                if(e.keyCode === 40 || e.keyCode === 39){
-                    self.scrollToPosition('down');
-                    e.preventDefault();
-                    return false;
-                }
-                // Home button
-                if(e.keyCode === 36){
-                    self.scrollToPosition('top');
-                    e.preventDefault();
-                    return false;
-                }
-                // End button
-                if(e.keyCode === 35){
-                    self.scrollToPosition('bottom');
-                    e.preventDefault();
-                    return false;
-                }
-            });
+			
+			if(self.options.enableKeys) {
+	            $(document).on('keydown', function(e){
+	                if(e.keyCode === 38 || e.keyCode === 37) {
+	                    self.scrollToPosition('up');
+	                    e.preventDefault();
+	                    return false;
+	                }
+	                if(e.keyCode === 40 || e.keyCode === 39){
+	                    self.scrollToPosition('down');
+	                    e.preventDefault();
+	                    return false;
+	                }
+	                // Home button
+	                if(e.keyCode === 36){
+	                    self.scrollToPosition('top');
+	                    e.preventDefault();
+	                    return false;
+	                }
+	                // End button
+	                if(e.keyCode === 35){
+	                    self.scrollToPosition('bottom');
+	                    e.preventDefault();
+	                    return false;
+	                }
+	            });
+            }
 
             if(self.options.scrollButtons){
                 if(self.options.scrollButtons.up){
