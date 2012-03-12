@@ -23,6 +23,6 @@ html{
 }
 .curtains>li:first-child{z-index:2;}
 
-.curtains>li:first-child, .curtains>li:nth-child(1){
+.curtains>li:first-child, .curtains>li:nth-child(2){
     display: block;
 }
