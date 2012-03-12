@@ -266,7 +266,7 @@
 
                 $current.removeClass('current')
                     .css({display:'none'})
-                    .next().addClass('current').nextAll().css({display:'block'});
+                    .next().addClass('current').nextAll(':lt('+2+')').css({display:'block'});
             }
 
 
