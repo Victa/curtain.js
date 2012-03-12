@@ -1,7 +1,7 @@
 /*
 * Curtain.js - Create an unique page transitioning system
 * ---
-* Version: 1.2.4
+* Version: 1.2.5
 * Copyright 2011, Victor Coulon (http://victorcoulon.fr)
 * Released under the MIT Licence
 */
@@ -84,7 +84,7 @@
                     var position = $(newEl).attr('data-position') || null;
                     self.scrollEl.animate({
                         scrollTop:position
-                    }, self.options.scrollSpeed).scrollTop(position);
+                    }, self.options.scrollSpeed);
                 }
             });
 
@@ -187,17 +187,17 @@
             } else if(direction === 'top'){
                 self.scrollEl.animate({
                     scrollTop:0
-                }, self.options.scrollSpeed).scrollTop(0);
+                }, self.options.scrollSpeed);
             } else if(direction === 'bottom'){
                 self.scrollEl.animate({
                     scrollTop:self.options.bodyHeight
-                }, self.options.scrollSpeed).scrollTop(0);
+                }, self.options.scrollSpeed);
             } else {
                 position = $("#"+direction).attr('data-position') || null;
                 if(position){
                     self.scrollEl.animate({
                         scrollTop:position
-                    }, this.options.scrollSpeed).scrollTop(position);
+                    }, this.options.scrollSpeed);
                 }
             }
             
@@ -351,32 +351,32 @@
                     self.scrollEvent();
                 });
             }
-			
-			if(self.options.enableKeys) {
-	            $(document).on('keydown', function(e){
-	                if(e.keyCode === 38 || e.keyCode === 37) {
-	                    self.scrollToPosition('up');
-	                    e.preventDefault();
-	                    return false;
-	                }
-	                if(e.keyCode === 40 || e.keyCode === 39){
-	                    self.scrollToPosition('down');
-	                    e.preventDefault();
-	                    return false;
-	                }
-	                // Home button
-	                if(e.keyCode === 36){
-	                    self.scrollToPosition('top');
-	                    e.preventDefault();
-	                    return false;
-	                }
-	                // End button
-	                if(e.keyCode === 35){
-	                    self.scrollToPosition('bottom');
-	                    e.preventDefault();
-	                    return false;
-	                }
-	            });
+            
+            if(self.options.enableKeys) {
+                $(document).on('keydown', function(e){
+                    if(e.keyCode === 38 || e.keyCode === 37) {
+                        self.scrollToPosition('up');
+                        e.preventDefault();
+                        return false;
+                    }
+                    if(e.keyCode === 40 || e.keyCode === 39){
+                        self.scrollToPosition('down');
+                        e.preventDefault();
+                        return false;
+                    }
+                    // Home button
+                    if(e.keyCode === 36){
+                        self.scrollToPosition('top');
+                        e.preventDefault();
+                        return false;
+                    }
+                    // End button
+                    if(e.keyCode === 35){
+                        self.scrollToPosition('bottom');
+                        e.preventDefault();
+                        return false;
+                    }
+                });
             }
 
             if(self.options.scrollButtons){
@@ -406,7 +406,7 @@
                     if(position){
                         self.scrollEl.animate({
                             scrollTop:position
-                        }, self.options.scrollSpeed).scrollTop(position);
+                        }, self.options.scrollSpeed);
                     }
                     return false;
                 });
