@@ -53,6 +53,7 @@ Valid options for curtain.js are:
 * ``menu`` - Bind event on "up" or "down" button (default ``null``)
 * ``curtainLinks`` - If you want add a ``<a>`` (or multiple) link to a specific panel simply add a class name to this option. Take a look of the example bellow.(default ``'.curtain-links'``)
 * ``enableKeys`` - Enable/Disable keyboard navigation (default ``true``)
+* ``easing`` -  Change this option to specify the easing function used by jQuery animate calls. (defaults ``swing``) (You muse use jQuery easing plugin or similar to have more easing functions)
 
 ### Example
 
@@ -198,6 +199,7 @@ $('.curtains').data('plugin_curtain').insert({
 
 ### Contributors
 
+* [Jordan Jefferson](https://github.com/jordanj77)
 * [Francis Thomas](http://francisthomas.fr/)
 * [John Brown](http://www.thisisjohnbrown.com/)
 
