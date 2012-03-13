@@ -17,7 +17,8 @@
             scrollButtons: {},
             controls: null,
             curtainLinks: '.curtain-links',
-            enableKeys: true
+            enableKeys: true,
+            easing: 'swing'
         };
 
     // The actual plugin constructor
@@ -84,7 +85,7 @@
                     var position = $(newEl).attr('data-position') || null;
                     self.scrollEl.animate({
                         scrollTop:position
-                    }, self.options.scrollSpeed);
+                    }, self.options.scrollSpeed, self.options.easing);
                 }
             });
 
@@ -181,23 +182,23 @@
                 if(position){
                     self.scrollEl.animate({
                         scrollTop:position
-                    }, this.options.scrollSpeed);
+                    }, this.options.scrollSpeed, this.options.easing);
                 }
 
             } else if(direction === 'top'){
                 self.scrollEl.animate({
                     scrollTop:0
-                }, self.options.scrollSpeed);
+                }, self.options.scrollSpeed, self.options.easing);
             } else if(direction === 'bottom'){
                 self.scrollEl.animate({
                     scrollTop:self.options.bodyHeight
-                }, self.options.scrollSpeed);
+                }, self.options.scrollSpeed, self.options.easing);
             } else {
                 position = $("#"+direction).attr('data-position') || null;
                 if(position){
                     self.scrollEl.animate({
                         scrollTop:position
-                    }, this.options.scrollSpeed);
+                    }, this.options.scrollSpeed, this.options.easing);
                 }
             }
             
@@ -406,7 +407,7 @@
                     if(position){
                         self.scrollEl.animate({
                             scrollTop:position
-                        }, self.options.scrollSpeed);
+                        }, self.options.scrollSpeed, self.options.easing);
                     }
                     return false;
                 });
