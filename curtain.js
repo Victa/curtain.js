@@ -100,10 +100,14 @@
             this.$element = $(this.element);
             this.$li = $(this.element).find('>li');
 
+            // Webkit based browser use translate3d
+            this.options.webkit = $.browser.webkit || false;
+
             $.Android = (navigator.userAgent.match(/Android/i));
             $.iPhone = ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)));
             $.iPad = ((navigator.userAgent.match(/iPad/i)));
             $.iOs4 = (/OS [1-4]_[0-9_]+ like Mac OS X/i.test(navigator.userAgent));
+
 
             if($.iPhone || $.iPad || $.Android){
                 this.options.mobile = true;
@@ -220,30 +224,52 @@
                 self._ignoreHashChange = true;
                 if($current.prev().attr('id'))
                     window.location.hash = $current.prev().attr('id');
-                    
-                $current.removeClass('current').css({marginTop: 0})
+                 
+       
+                $current.removeClass('current').css({marginTop: 0,'-webkit-transform': 'translate3d(0,0,0)'})
                     .nextAll().css({display:'none'}).end()
                     .prev().addClass('current').css({display:'block'});
+  
+                
 
             } else if(docTop < (currentP + $current.height())){
                 // Animate the current pannel during the scroll
-                $current.css({marginTop:-(docTop-currentP)});
+                var position = -(docTop-currentP);
+                if(self.options.webkit)
+                    $current.css('-webkit-transform','translate3d(0px,'+position+'px,0px)');
+                else
+                    $current.css({marginTop:position});
 
                 // If there is a fixed element in the current panel
                 if($fixed.length){
                     var dataTop = parseInt($fixed.attr('data-top'), 10);
                     if((docTop-currentP+windowHeight) >= currentHeight && $fixed.css('position') === 'fixed'){
-                        $fixed.css({
-                            position: 'absolute',
-                            top: Math.abs(docTop-currentP + dataTop)
-                        });
+      
+                        if(self.options.webkit){
+                            $fixed.css({
+                                position: 'absolute',
+                                '-webkit-transform':'translate3d(0px,'+ Math.abs(docTop-currentP)+'px,0px)'
+                            });
+                        } else {
+                            $fixed.css({
+                                position: 'absolute',
+                                top: Math.abs(docTop-currentP + dataTop)
+                            });
+                        }
+                        
 
                     } else if((docTop-currentP+windowHeight) <= currentHeight && $fixed.css('position') === 'absolute'){
                         $fixed.css({
                             position: 'fixed',
                             top: dataTop
                         });
+                    } else if($fixed.css('position') === 'fixed' && self.options.webkit) {
+                        $fixed.css({
+                            '-webkit-transform':'translate3d(0px,'+Math.abs(position)+'px,0px)'
+                        });
                     }
+
+                    
                 }
 
                 
