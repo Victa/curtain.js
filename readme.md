@@ -6,7 +6,7 @@ This plugin allows you to create a web page with multiple fixed panels that unro
 To navigate, you can use your keyboard instead the scrollbar or mousewheel to navigate into the document. 
 But that's not all, there is more features! For example, you can easily add a fixed element or multiple "steps" element inside a pannel.
 
-I created this plugin for the upcoming website of my friend [Etienne](http://artographik.fr/). And I decided to deliver this one as an open source project.
+I created this plugin for the website of my friend [Etienne](http://artographik.fr/) but we didn't use it. And I decided to deliver this one as an open source project.
 I would like you to note that the transition effect between two panels is extensively inspired by http://editsquarterly.com
 We were also such inspired by the following websites:
 
@@ -21,7 +21,6 @@ Feel free to fork the project on github or ping me on [twitter](http://twitter.c
 ## Demonstrations
 
 * [Demo website](http://curtain.victorcoulon.fr)
-* [Artographik](http://artographik.fr/) (upcomming website)
 
 ### Site using Curtain.js
 
