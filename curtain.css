@@ -12,7 +12,7 @@ html{
 .curtains>li{
     background: white;
     position: fixed;
-    display:none;
+    display:block;
     top: 0;
     left: 0;
     width: 100%;
@@ -22,9 +22,6 @@ html{
 }
 .curtains>li:first-child{z-index:2;}
 
-.curtains>li:first-child, .curtains>li:nth-child(2){
-    display: block;
-}
 
 .menu{
     -webkit-backface-visibility:hidden; /* Remove if you got display issues */}
