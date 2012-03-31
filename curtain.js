@@ -141,8 +141,31 @@
                 }
             }
 
+            // We'll check if our images are loaded
+            var images = [],
+                imagesLoaded = 0,
+                loadAllImages = function loadAllImages(callback){
+                    if(images.length === 0){
+                        callback();
+                        return false;
+                    }
+                    var img = new Image();
+                    $(img).attr('src',images[imagesLoaded]).load(function(){
+                    imagesLoaded++;
+                    if(imagesLoaded == images.length)
+                        callback();
+                    else
+                        loadAllImages(callback);
+                    });
+                };
+
+            self.$element.find('img').each(function(i,el){
+                images.push(el.src);
+            });
+
+
             // When all image is loaded
-            $(window).load(function(){
+            loadAllImages(function(){
                 self.setDimensions();
                 self.$li.eq(0).addClass('current');
 
@@ -155,6 +178,7 @@
                 self.setLinks();
                 self.isHashIsOnList(location.hash.substring(1));
             });
+
         },
         // Events
         scrollToPosition: function (direction){
