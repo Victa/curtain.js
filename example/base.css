@@ -184,6 +184,26 @@ pre {
     background-color: #333;
 }
 
+/* Curtain-links-menu */
+.curtain-links-menu{
+    display:none;
+    position:fixed;
+    z-index:2;
+    right:0px;
+    top:0px;
+    background-color: #383838;
+    padding:10px;
+}
+
+.curtain-links-menu a{
+    color:#e6e6e6;
+    font-size:12px;
+    text-decoration:none;
+}
+.curtain-links-menu a:hover{
+    text-decoration:underline;
+}
+
 /* Twitter follow */
 .follow {
     position: absolute;

@@ -101,7 +101,8 @@
             this.$li = $(this.element).find('>li');
 
             // Webkit based browser use translate3d
-            this.options.webkit = $.browser.webkit || false;
+            //this.options.webkit = $.browser.webkit || false; ==> @TODO
+            this.options.webkit = false;
 
             $.Android = (navigator.userAgent.match(/Android/i));
             $.iPhone = ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)));
@@ -190,13 +191,13 @@
             }
 
             if(direction === 'up' || direction == 'down'){
+
                 // Keyboard event
                 var $current = this.$element.find('.current'),
                     $next = (direction === 'up') ? $current.prev() : $current.next();
 
                 position = $next.attr('data-position') || null;
 
-                
                 // Step in the current panel ?
                 if($current.find('.step').length){
                     if(!$current.find('.current-step').length)
@@ -465,6 +466,7 @@
 
             if ("onhashchange" in window) {
                 window.addEventListener("hashchange", function(){
+                    console.log("ok");
                     if(self._ignoreHashChange === false){
                         self.isHashIsOnList(location.hash.substring(1));
                     }
