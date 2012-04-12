@@ -247,7 +247,7 @@
                 // Scroll top
                 self._ignoreHashChange = true;
                 if($current.prev().attr('id'))
-                    window.location.hash = $current.prev().attr('id');
+                    self.setHash($current.prev().attr('id'));
                  
        
                 $current.removeClass('current').css({marginTop: 0,'-webkit-transform': 'translate3d(0,0,0)'})
@@ -313,7 +313,7 @@
                 // Scroll bottom
                 self._ignoreHashChange = true;
                 if($current.next().attr('id'))
-                    window.location.hash = $current.next().attr('id');
+                    self.setHash($current.next().attr('id'));
 
                 $current.removeClass('current')
                     .css({display:'none'})
@@ -488,7 +488,12 @@
             });
         },
         setHash: function(hash){
-            window.location.hash = hash;
+            if(history.pushState) {
+                history.pushState(null, null, '#'+hash);
+            }
+            else {
+                location.hash = hash;
+            }
         },
         // Utils
         isHashIsOnList: function(hash){
