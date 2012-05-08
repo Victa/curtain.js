@@ -18,6 +18,8 @@ We were also such inspired by the following websites:
 
 Feel free to fork the project on github or ping me on [twitter](http://twitter.com/_victa) for any comments.
 
+<a href='http://www.pledgie.com/campaigns/17333'><img alt='Click here to lend your support to: Curtain.js and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/17333.png?skin_name=chrome' border='0' /></a>
+
 ## Demonstrations
 
 * [Demo website](http://curtain.victorcoulon.fr)
