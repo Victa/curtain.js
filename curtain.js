@@ -466,7 +466,6 @@
 
             if ("onhashchange" in window) {
                 window.addEventListener("hashchange", function(){
-                    console.log("ok");
                     if(self._ignoreHashChange === false){
                         self.isHashIsOnList(location.hash.substring(1));
                     }
