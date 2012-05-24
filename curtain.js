@@ -112,6 +112,7 @@
                 this.$li.css({position:'relative'});
                 this.$element.find('.fixed').css({position:'absolute'});
             }
+            
 
             if(this.options.mobile){
                this.scrollEl =  this.$element;
@@ -138,6 +139,8 @@
                     $(self.options.controls).css({position:'absolute'});
                 }
             }
+
+
 
             // We'll check if our images are loaded
             var images = [],
@@ -166,6 +169,13 @@
             loadAllImages(function(){
                 self.setDimensions();
                 self.$li.eq(0).addClass('current');
+
+                // Cache
+                self.$current = self.$element.find('.current');
+                self.$fixed = self.$current.find('.fixed');
+                self.$step = self.$current.find('.step');
+                self.currentP = parseInt(self.$current.attr('data-position'), 10);
+                self.currentHeight = parseInt(self.$current.attr('data-height'), 10);
 
                 if(!self.options.mobile){
                     if(self.$li.eq(1).length)
@@ -230,49 +240,48 @@
             
         },
         scrollEvent: function() {
-            var self = this;
-
-
-            var docTop = $(document).scrollTop(),
-                $current = self.$element.find('.current'),
-                $fixed = $current.find('.fixed'),
-                $step = $current.find('.step'),
-                currentP = parseInt($current.attr('data-position'), 10),
-                currentHeight = parseInt($current.attr('data-height'), 10),
+            var self = this,
+                docTop = $(document).scrollTop(),
                 windowHeight = $(window).height();
 
-            if(docTop < currentP && $current.index() > 0){
+
+            if(docTop < self.currentP && self.$current.index() > 0){
                 // Scroll top
                 self._ignoreHashChange = true;
-                if($current.prev().attr('id'))
-                    self.setHash($current.prev().attr('id'));
+                if(self.$current.prev().attr('id'))
+                    self.setHash(self.$current.prev().attr('id'));
                  
        
-                $current.removeClass('current').css({marginTop: 0})
+                self.$current.removeClass('current').css({marginTop: 0})
                     .nextAll().css({display:'none'}).end()
                     .prev().addClass('current').css({display:'block'});
   
-                
+                // Cache
+                self.$current = self.$element.find('.current');
+                self.$fixed = self.$current.find('.fixed');
+                self.$step = self.$current.find('.step');
+                self.currentP = parseInt(self.$current.attr('data-position'), 10);
+                self.currentHeight = parseInt(self.$current.attr('data-height'), 10);
 
-            } else if(docTop < (currentP + $current.height())){
+            } else if(docTop < (self.currentP + self.$current.height())){
                 // Animate the current pannel during the scroll
-                var position = -(docTop-currentP);
-                $current.css({marginTop:position});
+                var position = -(docTop-self.currentP);
+                self.$current.css({marginTop:position});
 
                 // If there is a fixed element in the current panel
-                if($fixed.length){
-                    var dataTop = parseInt($fixed.attr('data-top'), 10);
-                    if((docTop-currentP+windowHeight) >= currentHeight && $fixed.css('position') === 'fixed'){
-      
-    
-                    $fixed.css({
-                        position: 'absolute',
-                        top: Math.abs(docTop-currentP + dataTop)
-                    });
+                if(self.$fixed.length){
+                    var dataTop = parseInt(self.$fixed.attr('data-top'), 10);
+                    
+                    if((docTop-self.currentP+windowHeight) >= self.currentHeight && self.$fixed.css('position') === 'fixed'){
+        
+                        self.$fixed.css({
+                            position: 'absolute',
+                            top: Math.abs(docTop-self.currentP + dataTop)
+                        });
          
 
-                    } else if((docTop-currentP+windowHeight) <= currentHeight && $fixed.css('position') === 'absolute'){
-                        $fixed.css({
+                    } else if((docTop-self.currentP+windowHeight) <= self.currentHeight && self.$fixed.css('position') === 'absolute'){
+                        self.$fixed.css({
                             position: 'fixed',
                             top: dataTop
                         });
@@ -283,11 +292,11 @@
 
                 
                 // If there is a step element in the current panel
-                if($step.length){
-                    $.each($step, function(i,el){
+                if(self.$step.length){
+                    $.each(self.$step, function(i,el){
                         if($(el).offset().top <= docTop+5 && ($(el).offset().top + $(el).outerHeight()) >= docTop+5){
                             if(!$(el).hasClass('current-step')){
-                                $step.removeClass('current-step');
+                                self.$step.removeClass('current-step');
                                 $(el).addClass('current-step');
                             }
                         }
@@ -297,12 +306,19 @@
             } else {
                 // Scroll bottom
                 self._ignoreHashChange = true;
-                if($current.next().attr('id'))
-                    self.setHash($current.next().attr('id'));
+                if(self.$current.next().attr('id'))
+                    self.setHash(self.$current.next().attr('id'));
 
-                $current.removeClass('current')
+                self.$current.removeClass('current')
                     .css({display:'none'})
                     .next().addClass('current').nextAll().css({display:'block'});
+
+                // Cache
+                self.$current = self.$element.find('.current');
+                self.$fixed = self.$current.find('.fixed');
+                self.$step = self.$current.find('.step');
+                self.currentP = parseInt(self.$current.attr('data-position'), 10);
+                self.currentHeight = parseInt(self.$current.attr('data-height'), 10);
             }
 
 

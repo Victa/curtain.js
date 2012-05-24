@@ -10,6 +10,7 @@ html{
 }
 
 .curtains>li{
+    /*-webkit-transform:translateY(0);*/
     background: white;
     position: fixed;
     display:block;
@@ -23,5 +24,4 @@ html{
 .curtains>li:first-child{z-index:2;}
 
 
-.menu{
-    -webkit-backface-visibility:hidden; /* Remove if you got display issues */}
+.menu{-webkit-backface-visibility:hidden; /* Remove if you got display issues */}

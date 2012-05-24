@@ -3,223 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Curtain.js</title>
+    <title>Curtain.js - Example</title>
     <meta name="author" content="Victor Coulon">
     <meta name="description" content="jQuery plugin for creating an unique page transitioning system">
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="../curtain.css">
 </head>
 <body>
-
-<ul class="menu">
-    <li><button href="#up">&#8593;</button></li>
-    <li><button href="#down">&#8595;</button></li>
-</ul>
-
-<ul class="curtain-links-menu">
-    <li><a href="#intro" class="curtain-links">Intro</a></li>
-    <li><a href="#cover" class="curtain-links">Cover</a></li>
-    <li><a href="#fixed" class="curtain-links">Fixed</a></li>
-    <li><a href="#stepbystep" class="curtain-links">Step by Step</a></li>
-    <li><a href="#download" class="curtain-links">Download</a></li>
+<ul id="menu">
+    <li><a href="#section-1" class="curtain-links">Section 1</a></li>
+    <li><a href="#section-2" class="curtain-links">Section 2</a></li>
+    <li><a href="#section-3" class="curtain-links">Section 3</a></li>
+    <li><a href="#section-4" class="curtain-links">Section 4</a></li>
+    <li><a href="#section-5" class="curtain-links">Section 5</a></li>
 </ul>
 
 <ol class="curtains">
-    <li id="intro" class="cover">
+    <li id="section-1" class="cover">
+        <article>
+            <h1>SCROLL DOWN</h1>
+        </article>
+    </li>
+    <li id="section-2">
         
-        <!-- Fork me on github - Ribbon -->
-        <a href="https://github.com/Victa/curtain.js"><img style="position: absolute; top: 0; left: 0; border: 0;z-index:2;" src="img/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
-
-        <div class="presentation-wrapper">
-            <h1>Curtain.js</h1>
-            
-            <p>
-                This plugin allows you to create a web page with multiple fixed panels that unroll with an
-                amusing effect. Exactly like a curtain rises.
-                <br><br>
-                To navigate, you can use your keyboard instead the scrollbar or your mousewheel to
-                navigate into the document. But that's not all, there is more features! For example,
-                you can easily add a fixed element or multiple "steps" element into a pannel.
-                <br><br>
-                I created this plugin for the upcoming website of my friend <a href="http://artographik.fr/">Etienne</a>.
-                And I decided to deliver this one as an open source project. I would like you to
-                note that the transition effect between two panels is extensively inspired by
-                <a href="http://editsquarterly.com/">Edits Quarterly</a> We were also such inspired
-                by the following websites:<br>
-                <br>
-                <a href="http://www.interviewmagazine.com">http://www.interviewmagazine.com</a><br>
-                <a href="http://dbworks.pro">http://dbworks.pro</a><br>
-                <a href="http://www.deuxhuithuit.com/en">http://www.deuxhuithuit.com/en</a><br>
-                <a href="http://madebygrave.com">http://madebygrave.com</a><br>
-                <a href="http://www.boston.com/bigpicture/">http://www.boston.com/bigpicture</a><br>
-                <br>
-                Feel free to fork the project on <a href="https://github.com/Victa/curtain.js">github</a>
-                or ping me on <a href="http://twitter.com/_victa">twitter</a> for any comments.
-                <em><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://curtain.victorcoulon.fr" data-via="_victa" data-hashtags="jquery">Tweet</a></em>
-                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-            </p>
-            <div class="btns">
-                <a href="#download" class="btn btn-small curtain-links">Download</a>
-                <a href="https://github.com/Victa/curtain.js/blob/master/readme.md" class="btn btn-small">Instructions</a>
-            </div>
-        </div>
-
-    </li>
-    <li id="cover" class="cover">
-        <div class="cover-wrapper">
-            <img src="img/full.jpg" />
-            <span>A cover with a full background picture</span>
-        </div>
-    </li>
-    <li id="fixed">
         <div class="fixed">
-            <h1>A fixed content</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+            LOREM IPSUM DOLOR
         </div>
-        <div class="content-wrapper">
-            <h1>A static and responsive content</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            <h2>Lorem ipsum</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-            Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-            amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit
-            amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare
-            sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus
-            lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
-            faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi,
-            tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-            <h2>Lorem ipsum</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            <h2>Lorem ipsum</h2>
-            <img src="img/1.jpeg" alt="">
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-            Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-            amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit
-            amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare
-            sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus
-            lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
-            faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi,
-            tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-            <h2>Lorem ipsum</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-            Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-            amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit
-            amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare
-            sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus
-            lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
-            faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi,
-            tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-            <h2>Lorem ipsum</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            <h2>Lorem ipsum</h2>
-            <img src="img/2.jpeg" alt="">
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-            Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-            amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit
-            amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare
-            sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus
-            lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
-            faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi,
-            tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-            <h2>Lorem ipsum</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            <h2>Lorem ipsum</h2>
-            <img src="img/3.jpeg" alt="">
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-            Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-            amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit
-            amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare
-            sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus
-            lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
-            faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi,
-            tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-            <h2>Lorem ipsum</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            <a href="#instructions" class="curtain-links">intro</a>
-        </div>
+        <article>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            
+        </article>
     </li>
-    <li id="stepbystep">
-        <div class="steps-wrapper">
+    <li id="section-3">
+        <img src="http://eephusleague.com/magazine/img/1_3.jpg" alt="" class="cover-background fixed">
+        <article>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </article>
+    </li>
+    <li id="section-4">
+        <article>
+            <h1>A step by step panel</h1>
             <ul class="step-list">
-                <li class="step cf">
-                    <h1>A step by step panel</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                <li class="step">
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </li>
-                <li class="step cf">
-                    <div class="width50">
-                        <img src="img/1.jpeg" alt="">
-                    </div>
-                    <div class="width50">
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                        Vestibulum tortor quam, feugiat vitae, magna eros eu erat. Aliquam erat volutpat. Nam dui mi,
-                        tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-                    </div>
+                 <li class="step">
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </li>
-                <li class="step cf">
-                    <div class="width50">
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                        Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-                        amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit
-                        amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare
-                        sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus
-                        lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
-                        faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi,
-                        tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-                    </div>
-                    <div class="width50">
-                        <img src="img/2.jpeg" alt="">
-                    </div>
+                 <li class="step">
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </li>
-                <li class="step cf">
-                    <div class="width50">
-                        <img src="img/3.jpeg" alt="">
-                    </div>                
-                    <div class="width50">
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                        Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-                        amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit
-                        amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare
-                        sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum</p>
-                    </div>
+                 <li class="step">
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </li>
-                <li class="step cf">
-                    <div class="width50">
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                        Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-                        amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit
-                        amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare
-                        sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus
-                        lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
-                        faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi,
-                        tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-                    </div>
-                    <div class="width50">
-                        <img src="img/4.jpeg" alt="">
-                    </div>
+                 <li class="step">
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </li>
+                 <li class="step">
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </li>
             </ul>
-        </div>
+        </article>
     </li>
-    <li id="download" class="cover">
-        <div class="download-wrapper">
-            <a href="https://github.com/Victa/curtain.js" class="btn">Download <span>on github.com</span></a>
-        </div>
-        <a href="http://twitter.com/_victa" class="follow">Follow me on twitter</a>
+    <li id="section-5"  class="cover">
+        <article>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </article>
     </li>
 </ol>
 
@@ -234,16 +188,5 @@
        });
     });
 </script>
-
- <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-22043471-3']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script> 
 </body>
 </html>
