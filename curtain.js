@@ -150,14 +150,17 @@
                         callback();
                         return false;
                     }
-                    var img = new Image();
-                    $(img).attr('src',images[imagesLoaded]).load(function(){
-                    imagesLoaded++;
-                    if(imagesLoaded == images.length)
-                        callback();
-                    else
-                        loadAllImages(callback);
-                    });
+
+                    var img = new Image();					
+                    $(img).load(function() {
+                    	imagesLoaded++;
+	                    if(imagesLoaded == images.length)
+	                        callback();
+	                    else
+	                        loadAllImages(callback);
+	                });
+		
+					img.src = images[imagesLoaded];
                 };
 
             self.$element.find('img').each(function(i,el){
@@ -465,12 +468,22 @@
             }
 
             if ("onhashchange" in window) {
-                window.addEventListener("hashchange", function(){
-                    if(self._ignoreHashChange === false){
-                        self.isHashIsOnList(location.hash.substring(1));
-                    }
-                    self._ignoreHashChange = false;
-                }, false);
+				if(!window.addEventListener)
+				{
+					window.attachEvent("hashchange", function(){
+	                    if(self._ignoreHashChange === false){
+	                        self.isHashIsOnList(location.hash.substring(1));
+	                    }
+	                    self._ignoreHashChange = false;
+	                });	
+				} else {
+					window.addEventListener("hashchange", function(){
+	                    if(self._ignoreHashChange === false){
+	                        self.isHashIsOnList(location.hash.substring(1));
+	                    }
+	                    self._ignoreHashChange = false;
+	                }, false);
+				}
             }
         },
         setBodyHeight: function(){
