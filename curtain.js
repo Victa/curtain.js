@@ -1,7 +1,7 @@
 /*
 * Curtain.js - Create an unique page transitioning system
 * ---
-* Version: 1.4.2
+* Version: 1.4.3
 * Copyright 2011, Victor Coulon (http://victorcoulon.fr)
 * Released under the MIT Licence
 */
