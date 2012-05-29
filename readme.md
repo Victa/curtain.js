@@ -30,6 +30,7 @@ Feel free to fork the project on github or ping me on [twitter](http://twitter.c
 * http://chronopizza.net/
 * http://threepointline.cc
 * http://www.youdesignit.com/guides/t-shirts
+* http://hivemined.org/
 
 Send me your :)
 
