@@ -20,4 +20,5 @@ html{
     overflow: hidden;
     z-index:1;
 }
+.curtains>li.hidden{display:none;}
 .curtains>li:first-child{z-index:2;}
