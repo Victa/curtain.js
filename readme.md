@@ -188,7 +188,7 @@ $('.curtains').data('plugin_curtain').insert({
 * Safari
 * Firefox
 * Chrome
-* IE7/IE8/IE9
+* IE8/IE9
 * iOs (iPhone/iPad) __but the curtain effect is disabled__
 * Android (Chrome/Opera) __but the curtain effect is disabled__
 
