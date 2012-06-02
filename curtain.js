@@ -20,7 +20,7 @@
             curtainLinks: '.curtain-links',
             enableKeys: true,
             easing: 'swing',
-            disabled: true
+            disabled: false
         };
 
     // The actual plugin constructor
@@ -146,26 +146,8 @@
                 }
             }
 
-            // We'll check if our images are loaded
-            var images = [],
-                imagesLoaded = 0,
-                loadAllImages = function loadAllImages(callback){
-                    if(images.length === 0){
-                        callback();
-                        return false;
-                    }
-                    var img = new Image();
-                    $(img).attr('src',images[imagesLoaded]).load(function(){
-                    imagesLoaded++;
-                    if(imagesLoaded === images.length)
-                        callback();
-                    else
-                        loadAllImages(callback);
-                    });
-                };
-
             // When all image is loaded
-            self.$element.find('img').imagesLoaded( function(){
+            var callbackImageLoaded = function(){
                 self.setDimensions();
                 self.$li.eq(0).addClass('current');
 
@@ -179,7 +161,12 @@
                 self.setEvents();
                 self.setLinks();
                 self.isHashIsOnList(location.hash.substring(1));
-            });
+            };
+
+            if(self.$element.find('img').length)
+                self.imageLoaded(callbackImageLoaded);
+            else
+                callbackImageLoaded();
 
         },
         // Events
@@ -536,6 +523,25 @@
               clearInterval(interval);
             }
           },60);
+        },
+        imageLoaded: function(callback){
+            var self = this,
+                elems = self.$element.find('img'),
+                len   = elems.length,
+                blank = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+
+            elems.bind('load.imgloaded',function(){
+                if (--len <= 0 && this.src !== blank){
+                    elems.unbind('load.imgloaded');
+                    callback.call(elems,this);
+                }
+            }).each(function(){
+                if (this.complete || this.complete === undefined){
+                    var src = this.src;
+                    this.src = blank;
+                    this.src = src;
+                }
+            });
         }
     };
 

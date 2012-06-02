@@ -18,57 +18,12 @@ body {
     font:16px/1.2 "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
-h1{font-size:38px;}
-p{margin:1em 0 0 0;}
-
-article{
-    margin:0 auto;
-    max-width:600px;
-    padding:5em;
-}
-    article h1{text-align:center;}
-
 
 /* Sliding panels */
 .curtains>li {
     box-shadow:0 0 12px #666;
     background-color: rgb(255,255,255);
 }
-.cover-background{
-    position:fixed;
-    top:0;left:0;
-}
-
-/* Specific */
-#section-2{
-    background:#FFF url('http://placekitten.com/g/1400/1600') 0 0 no-repeat;     
-    color:white;
-    text-shadow:0 1px 0 black;
-}
-
-    #section-2 .fixed {
-        position: fixed;
-        top: 150px;
-        left: 40px;
-        width: 200px;
-        z-index:20;
-    }
-
-
-#section-3{
-    min-height:2300px;
-    color:white;
-    text-shadow:0 1px 0 black;
-}
-    #section-3 article{
-        padding-top:20em;
-    }
-
-
-    #section-3 article{
-        position:relative;
-        z-index:20;
-    }
 
 /* MENU */
 #menu{
@@ -85,6 +40,30 @@ article{
         color:#FFF;
     }
 
-/* STEP BY STEP */
-li.step{margin:1em 0 0 0;}
 
+#section-1{
+    background:#000 url(img/web.jpg) 0 0 no-repeat;
+    background-size:cover;
+    min-height:1000px
+}
+
+    #section-1 header{
+        color:#FFF;
+        position:fixed;
+        top:200px;
+        left:50%;
+        margin:0 0 0 -350px;
+        width:700px;
+        text-align:center;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, .5);
+    }
+
+    #section-1 h1{
+        font-size:120px;
+    }
+
+    #section-1 h2{
+        opacity:.75;
+        font-size:48px;
+        font-weight: lighter;
+    }
