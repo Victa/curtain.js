@@ -36,62 +36,6 @@
         this._ignoreHashChange = false;
 
         this.init();
-
-        // Public Functions
-        this.insert = function(content){
-            if(Object.prototype.toString.call(content) !== '[object Object]') {
-                throw new TypeError('Content must be an object');
-            }
-            content.goTo = (content.goTo === true) ? true : false;
-
-            // append the content to list
-            var newEl = $(document.createElement('li')).attr('id', (content.htmlId) ? content.htmlId : null)
-                                .attr('class', (content.htmlClass) ? content.htmlClass : null)
-                                .html( (content.html) ? content.html : null );
-            $(self.element).append(newEl);
-
-
-            // Append Content after an element OR at the end
-            if(content.insertAfter && $(content.insertAfter).length) {
-                $(self.element).find(content.insertAfter).after(newEl);
-            } else {
-                $(self.element).append(newEl);
-            }
-
-
-            // When the element is ready
-            self.readyElement($(newEl), function(){
-                // re(init) cache elements
-                self.$element = $(self.element);
-                self.$li = $(self.element).find('>li');
-
-                // Mobile Fix
-                if(self.options.mobile){
-                    self.$li.css({position:'relative'});
-                    self.$element.find('.fixed').css({position:'absolute'});
-                }
-                
-                self.setLinks();
-
-                // Set dimensions after loading images (or not)
-                if($(newEl).find('img').length){
-                    $(newEl).find('img').load(function(){
-                        self.setDimensions();
-                    });
-                } else {
-                    self.setDimensions();
-                }
-
-                // Scroll to the new element
-                if(content.goTo === true){
-                    var position = $(newEl).attr('data-position') || null;
-                    self.scrollEl.animate({
-                        scrollTop:position
-                    }, self.options.scrollSpeed, self.options.easing);
-                }
-            });
-
-        };
     }
 
     Plugin.prototype = {
@@ -275,6 +219,25 @@
                                 return false;
                             }
                         }
+                    });
+                }
+
+
+                if(self.parallaxBg){
+                    self.$current.css({
+                        'background-position-y': docTop * self.parallaxBg
+                    });
+                }
+
+                if(self.$fade.length){
+                    self.$fade.css({
+                        'opacity': 1-(docTop/ self.$fade.attr('data-fade'))
+                    });
+                }
+
+                if(self.$slowScroll.length){
+                    self.$slowScroll.css({
+                        'margin-top' : (docTop / self.$slowScroll.attr('data-slow-scroll'))
                     });
                 }
 
@@ -505,6 +468,11 @@
             self.currentIndex = self.$current.index();
             self.currentP = self.$elDatas[self.currentIndex]['data-position'];
             self.currentHeight = self.$elDatas[self.currentIndex]['data-height'];
+
+            self.parallaxBg = self.$current.attr('data-parallax-background');
+            self.$fade = self.$current.find('[data-fade]');
+            self.$slowScroll = self.$current.find('[data-slow-scroll]');
+
         },
         // Utils
         isHashIsOnList: function(hash){

@@ -159,36 +159,12 @@ $(function () {
 });
 ```
 
-### Add a new panel dynamically
-
-You can add a new panel in your list dynamically. Simply use the public function called 'insert'.
-
-
-```js
-var html = [
-    '<h1>My New Panel!</h1>',
-    '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>'
-].join('');
-
-$('.curtains').data('plugin_curtain').insert({
-    html:html,
-    htmlId: 'newpannel',
-    htmlClass: 'cover',
-    insertAfter:'#intro', // If null, the content is inserted at the end
-    goTo: false // Go to the new panel directly after the insertion (default: true)
-});
-
-```
-
-**``id``, ``class``, ``insertAfter`` and ``goTo`` attributes are optional.**
-
-
 ## Compatibility
 
 * Safari
 * Firefox
 * Chrome
-* IE8/IE9
+* IE7/IE8/IE9
 * iOs (iPhone/iPad) __but the curtain effect is disabled__
 * Android (Chrome/Opera) __but the curtain effect is disabled__
 

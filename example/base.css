@@ -4,6 +4,31 @@
 /* RESET */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 
+@font-face {
+    font-family: 'Avenir';
+    src: url('fonts/avenirltstd-book-webfont.eot');
+    src: url('fonts/avenirltstd-book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/avenirltstd-book-webfont.woff') format('woff'),
+         url('fonts/avenirltstd-book-webfont.ttf') format('truetype'),
+         url('fonts/avenirltstd-book-webfont.svg#AvenirLTStd45BookRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('fonts/avenirltstd-light-webfont.eot');
+    src: url('fonts/avenirltstd-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/avenirltstd-light-webfont.woff') format('woff'),
+         url('fonts/avenirltstd-light-webfont.ttf') format('truetype'),
+         url('fonts/avenirltstd-light-webfont.svg#AvenirLTStd35LightRegular') format('svg');
+    font-weight: 200;
+    font-style: normal;
+
+}
+
 /* Clearfix */
 .cf:before,
 .cf:after {
@@ -15,12 +40,56 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 /* Base Style */
 body {
-    font:16px/1.2 "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font:14px/1.6 'Avenir', "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-weight: 100;
 }
 
+article{
+    padding:100px 0;
+    width:600px;
+    margin:0 auto;
+}
+
+    article h2{
+        font-weight: normal;
+        font-size:20px;
+        margin:1em 0 .25em 0;
+    }
+
+p{
+    font-weight:200;
+    margin:0 0 1em 0;
+    min-height:1px;
+}
+
+strong{
+    font-weight:bold;
+}
+
+a{color:#1074ce;text-decoration:none;}
+a:hover{color:#0a487f;}
+
+.button{
+    display:inline-block;
+    font-family:sans-serif;
+    line-height:1;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 6px 8px;
+    background:#222;
+    color:#FFF;
+    margin-right:10px;
+}
+    .button:hover{
+        color:#FFF;
+        background-color:#444;
+    }
 
 /* Sliding panels */
 .curtains>li {
+    background-color:#FFF;
     box-shadow:0 0 12px #666;
     background-color: rgb(255,255,255);
 }
@@ -41,29 +110,38 @@ body {
     }
 
 
+
+/* Section 1 */
+
 #section-1{
-    background:#000 url(img/web.jpg) 0 0 no-repeat;
+    background:url(img/web-2.jpg) 50% 0 no-repeat;
     background-size:cover;
-    min-height:1000px
 }
 
     #section-1 header{
         color:#FFF;
-        position:fixed;
-        top:200px;
+        position:absolute;
+        top:30%;
         left:50%;
         margin:0 0 0 -350px;
         width:700px;
         text-align:center;
         text-shadow: 0 1px 1px rgba(0, 0, 0, .5);
+        line-height:1.1;
     }
 
     #section-1 h1{
         font-size:120px;
+        font-weight: normal;
     }
 
     #section-1 h2{
         opacity:.75;
         font-size:48px;
-        font-weight: lighter;
+        font-weight: 200;
     }
+
+/* Section 2 */
+#section-2{
+    background:#FFF;
+}
