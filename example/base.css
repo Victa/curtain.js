@@ -1,73 +1,49 @@
-
 /* Curtain.js - Example page */
+
+/* Google Font */
+@import url(http://fonts.googleapis.com/css?family=PT+Serif|PT+Sans+Narrow:700|PT+Sans);
+
 
 /* RESET */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 
-@font-face {
-    font-family: 'Avenir';
-    src: url('fonts/avenirltstd-book-webfont.eot');
-    src: url('fonts/avenirltstd-book-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/avenirltstd-book-webfont.woff') format('woff'),
-         url('fonts/avenirltstd-book-webfont.ttf') format('truetype'),
-         url('fonts/avenirltstd-book-webfont.svg#AvenirLTStd45BookRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-@font-face {
-    font-family: 'Avenir';
-    src: url('fonts/avenirltstd-light-webfont.eot');
-    src: url('fonts/avenirltstd-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/avenirltstd-light-webfont.woff') format('woff'),
-         url('fonts/avenirltstd-light-webfont.ttf') format('truetype'),
-         url('fonts/avenirltstd-light-webfont.svg#AvenirLTStd35LightRegular') format('svg');
-    font-weight: 200;
-    font-style: normal;
-
-}
 
 /* Clearfix */
 .cf:before,
-.cf:after {
-    content:"";
-    display:table;
-}
-.cf:after {clear:both;}
+.cf:after { content:"";display:table; }
+.cf:after { clear:both; }
 .cf { zoom:1;}
 
 /* Base Style */
 body {
-    font:14px/1.6 'Avenir', "Helvetica Neue", Arial, Helvetica, sans-serif;
-    font-weight: 100;
+    font:14px/1.6 'PT Serif', serif;
+    font-weight: 400;
+    color:#222;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
-article{
-    padding:100px 0;
-    width:600px;
-    margin:0 auto;
-}
+h1,h2,h3{font-family: 'PT Sans Narrow', sans-serif;font-weight:bold;text-transform: uppercase;}
+h4,h5,h6{font-family: 'PT Sans', sans-serif;font-weight:bold;}
 
-    article h2{
-        font-weight: normal;
-        font-size:20px;
-        margin:1em 0 .25em 0;
-    }
-
-p{
-    font-weight:200;
-    margin:0 0 1em 0;
-    min-height:1px;
-}
-
-strong{
-    font-weight:bold;
-}
+p{min-height:1px;}
+strong{font-weight:bold;}
+hr{background: #333;border: 0;height: 2px;margin: 12px auto 8px;width: 60px;}
 
 a{color:#1074ce;text-decoration:none;}
 a:hover{color:#0a487f;}
+
+article{
+    text-align:center;
+    padding:100px 0;
+    width:250px;
+    margin:0 auto;
+}
+
+    article h4{ font-size:20px; margin:1em 0 0; }
+    article h4:first-child{ margin:0; }
+    article p{ text-align:justify; }
+
 
 .button{
     display:inline-block;
@@ -114,7 +90,7 @@ a:hover{color:#0a487f;}
 /* Section 1 */
 
 #section-1{
-    background:url(img/web-2.jpg) 50% 0 no-repeat;
+    background:url(img/news.jpg) 50% 0 no-repeat;
     background-size:cover;
 }
 
@@ -132,13 +108,12 @@ a:hover{color:#0a487f;}
 
     #section-1 h1{
         font-size:120px;
-        font-weight: normal;
     }
 
     #section-1 h2{
+        text-transform:capitalize;
         opacity:.75;
         font-size:48px;
-        font-weight: 200;
     }
 
 /* Section 2 */
