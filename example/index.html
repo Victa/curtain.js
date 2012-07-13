@@ -6,8 +6,8 @@
     <title>Curtain.js - Example</title>
     <meta name="author" content="Victor Coulon">
     <meta name="description" content="jQuery plugin for creating an unique page transitioning system">
-    <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="../curtain.css">
+    <link rel="stylesheet" href="base.css">
 </head>
 <body>
 
@@ -42,11 +42,38 @@
         </article>
     </li>
     <li id="section-3">
-        <hgroup>
-            <h4>Wanna see more?</h4>
-            <hr>
-            <h5>please scroll down</h5>
-        </hgroup>
+        <section class="photos">
+            <div class="fixed">
+                <h4>Here's a fixed title</h4>
+                <p>With a small fixed text.</p>
+                <p>Oh, and you can see my last selected Instagram pictures on the left.</p>
+            </div>
+            <div class="photos-inner">
+                    <ul class="step-list">
+                        <li class="step">
+                            <img src="http://placekitten.com/600/600" alt="">
+                        </li>
+                        <li class="step">
+                            <img src="http://placekitten.com/600/600" alt="">
+                        </li>
+                        <li class="step">
+                            <img src="http://placekitten.com/600/600" alt="">
+                        </li>
+                        <li class="step">
+                            <img src="http://placekitten.com/600/600" alt="">
+                        </li>
+                        <li class="step">
+                            <img src="http://placekitten.com/600/600" alt="">
+                        </li>
+                    </ul>
+            </div>
+        </section>
+    </li>
+    <li id="section-4">
+        <section class="download">
+            <h1>Interested?</h1>
+            <a href="#">download on github</a>
+        </section>
     </li>
 </ol>
 
@@ -55,7 +82,7 @@
 <script>
     $(function(){
        $('.curtains').curtain({
-           scrollSpeed: 100,
+           scrollSpeed: 300,
            controls: '.menu',
            curtainLinks: '.curtain-links'
        });
