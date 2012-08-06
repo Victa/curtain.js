@@ -191,6 +191,7 @@ $('.curtains').curtains({
     nextSlide: function() { console.log('next slide'); },
     prevSlide: function() { console.log('previous slide')}
 });
+```
 
 
 ## Compatibility
