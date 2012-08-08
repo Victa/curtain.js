@@ -182,6 +182,17 @@ $('.curtains').data('plugin_curtain').insert({
 
 **``id``, ``class``, ``insertAfter`` and ``goTo`` attributes are optional.**
 
+### Add callbacks to slide change events
+
+You can fire a callback when the slide changes
+
+```js
+$('.curtains').curtains({
+    nextSlide: function() { console.log('next slide'); },
+    prevSlide: function() { console.log('previous slide')}
+});
+```
+
 
 ## Compatibility
 

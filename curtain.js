@@ -18,7 +18,9 @@
             controls: null,
             curtainLinks: '.curtain-links',
             enableKeys: true,
-            easing: 'swing'
+            easing: 'swing',
+            nextSlide: null,
+            prevSlide: null
         };
 
     // The actual plugin constructor
@@ -246,6 +248,11 @@
 
 
             if(docTop < self.currentP && self.$current.index() > 0){
+                if (self.options.prevSlide) {
+                    self.options.prevSlide();
+                }
+
+                    
                 // Scroll top
                 self._ignoreHashChange = true;
                 if(self.$current.prev().attr('id'))
@@ -304,6 +311,9 @@
                 }
 
             } else {
+                if (self.options.nextSlide) {
+                    self.options.nextSlide();
+                }
                 // Scroll bottom
                 self._ignoreHashChange = true;
                 if(self.$current.next().attr('id'))
