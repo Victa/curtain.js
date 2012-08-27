@@ -49,23 +49,32 @@
                 <p>Oh, and you can see my last selected Instagram pictures on the left.</p>
             </div>
             <div class="photos-inner">
-                    <ul class="step-list">
-                        <li class="step">
-                            <img src="http://placekitten.com/600/600" alt="">
-                        </li>
-                        <li class="step">
-                            <img src="http://placekitten.com/600/600" alt="">
-                        </li>
-                        <li class="step">
-                            <img src="http://placekitten.com/600/600" alt="">
-                        </li>
-                        <li class="step">
-                            <img src="http://placekitten.com/600/600" alt="">
-                        </li>
-                        <li class="step">
-                            <img src="http://placekitten.com/600/600" alt="">
-                        </li>
-                    </ul>
+                <ul class="step-list">
+                    <li class="step">
+                        <img src="img/stepbystep/1.jpg" alt="">
+                    </li>
+                    <li class="step">
+                        <img src="img/stepbystep/2.jpg" alt="">
+                    </li>
+                    <li class="step">
+                        <img src="img/stepbystep/3.jpg" alt="">
+                    </li>
+                    <li class="step">
+                        <img src="img/stepbystep/4.jpg" alt="">
+                    </li>
+                    <li class="step">
+                        <img src="img/stepbystep/5.jpg" alt="">
+                    </li>
+                    <li class="step">
+                        <img src="img/stepbystep/6.jpg" alt="">
+                    </li>
+                    <li class="step">
+                        <img src="img/stepbystep/7.jpg" alt="">
+                    </li>
+                    <li class="step">
+                        <img src="img/stepbystep/8.jpg" alt="">
+                    </li>
+                </ul>
             </div>
         </section>
     </li>
@@ -84,7 +93,10 @@
        $('.curtains').curtain({
            scrollSpeed: 300,
            controls: '.menu',
-           curtainLinks: '.curtain-links'
+           curtainLinks: '.curtain-links',
+           nextSlide: function(){
+            console.log("ok");
+           }
        });
     });
 </script>

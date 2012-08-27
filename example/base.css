@@ -66,7 +66,7 @@ article{
 
 /* Sliding panels */
 .curtains>li {
-    background:#FFF url(http://subtlepatterns.com/patterns/blizzard.png);
+    background:#FFF url(img/blizzard.png);
     box-shadow:0 0 12px #666;
 }
     .curtains>li:last-child{box-shadow:none}
@@ -91,7 +91,7 @@ article{
 /* Section 1 */
 
 #section-1{
-    background:url(img/web-2.jpg) 50% 0 no-repeat;
+    background:url(img/eiffel-2.jpg) 50% 0 no-repeat;
     background-size:cover;
 }
 
@@ -124,12 +124,14 @@ article{
 
 /* Section 3 */
 #section-3{
-    padding:150px 0
+    
 }
     #section-3 .photos{
+        padding:150px 0;
         width:620px;
         margin-left:150px;
     }
+        #section-3 .photos > :last-child{margin-bottom:0}
 
         #section-3 .fixed{
             position: fixed;

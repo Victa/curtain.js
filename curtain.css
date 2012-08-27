@@ -10,6 +10,7 @@ html{
 }
 
 .curtains>li{
+    -webkit-transform:translateZ(0);
     background: white;
     position: fixed;
     display:block;
