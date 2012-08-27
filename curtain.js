@@ -20,7 +20,9 @@
             curtainLinks: '.curtain-links',
             enableKeys: true,
             easing: 'swing',
-            disabled: false
+            disabled: false,
+            nextSlide: function() {},
+            prevSlide: function() {}
         };
 
     // The actual plugin constructor
@@ -184,6 +186,7 @@
                     .prev().addClass('current').removeClass('hidden');
   
                 self.setCache();
+                self.options.prevSlide();
 
             } else if(docTop < (self.currentP + self.currentHeight)){
 
@@ -252,6 +255,7 @@
                     .next('li').addClass('current').next('li').removeClass('hidden');
 
                 self.setCache();
+                self.options.nextSlide();
             }
 
         },
@@ -269,6 +273,7 @@
 
                 self.$current.removeClass('current').prev().addClass('current');
                 self.setCache();
+                self.options.prevSlide();
             } else if(docTop+10 < (self.currentP + self.currentHeight)){
 
                 // If there is a step element in the current panel
@@ -292,6 +297,7 @@
 
                 self.$current.removeClass('current').next().addClass('current');
                 self.setCache();
+                self.options.nextSlide();
             }
 
 
