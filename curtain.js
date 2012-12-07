@@ -248,10 +248,6 @@
 
 
             if(docTop < self.currentP && self.$current.index() > 0){
-                if (self.options.prevSlide) {
-                    self.options.prevSlide();
-                }
-
                     
                 // Scroll top
                 self._ignoreHashChange = true;
@@ -269,6 +265,11 @@
                 self.$step = self.$current.find('.step');
                 self.currentP = parseInt(self.$current.attr('data-position'), 10);
                 self.currentHeight = parseInt(self.$current.attr('data-height'), 10);
+
+                // Callback
+                if (self.options.prevSlide) {
+                    self.options.prevSlide();
+                }
 
             } else if(docTop < (self.currentP + self.$current.height())){
                 // Animate the current pannel during the scroll
@@ -311,9 +312,7 @@
                 }
 
             } else {
-                if (self.options.nextSlide) {
-                    self.options.nextSlide();
-                }
+                
                 // Scroll bottom
                 self._ignoreHashChange = true;
                 if(self.$current.next().attr('id'))
@@ -329,6 +328,11 @@
                 self.$step = self.$current.find('.step');
                 self.currentP = parseInt(self.$current.attr('data-position'), 10);
                 self.currentHeight = parseInt(self.$current.attr('data-height'), 10);
+
+                // Callback
+                if (self.options.nextSlide) {
+                    self.options.nextSlide();
+                }
             }
 
 
