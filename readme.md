@@ -16,13 +16,9 @@ Feel free to fork the project on github or ping me on [twitter](http://twitter.c
 
 ### Site using Curtain.js
 
-* http://www.visualstoryteller.nl/
-* http://chronopizza.net/
-* http://threepointline.cc
-* http://www.youdesignit.com/guides/t-shirts
-* http://hivemined.org/
+* [http://sports.espn.go.com/espn/eticket/story?page=Dock-Ellis](http://sports.espn.go.com/espn/eticket/story?page=Dock-Ellis)
+* [http://womenandtech.com/](http://womenandtech.com/)
 
-Send me your :)
 
 ## Documentation
 
