@@ -1,4 +1,4 @@
-Curtain.js version 2.0 - Work In Progress
+Curtain.js (The plugin is no longer maintained)
 ========================================
 
 This plugin allows you to create a web page with multiple fixed panels that unroll with an amusing effect. Exactly like a curtain rises.
