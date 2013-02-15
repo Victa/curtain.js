@@ -1,4 +1,3 @@
-
 /*
 * Curtain.js - Create an unique page transitioning system
 * ---
@@ -505,7 +504,7 @@
                 blank = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 
             elems.bind('load.imgloaded',function(){
-                if (--len <= 0 && this.src !== blank){
+                if (--len <= 0 && this.src !== blank || $(this).not(':visible')){
                     elems.unbind('load.imgloaded');
                     callback.call(elems,this);
                 }
