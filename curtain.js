@@ -18,6 +18,7 @@
             controls: null,
             curtainLinks: '.curtain-links',
             enableKeys: true,
+            enableWheel: false,
             easing: 'swing',
             disabled: false,
             nextSlide: function() {},
@@ -386,6 +387,21 @@
                     // End button
                     if(e.keyCode === 35){
                         self.scrollToPosition('bottom');
+                        e.preventDefault();
+                        return false;
+                    }
+                });
+            }
+
+            if(self.options.enableWheel) {
+                $(document).on('mousewheel', function(e){
+                    if(e.originalEvent.wheelDelta === -120) {
+                        self.scrollToPosition('down');
+                        e.preventDefault();
+                        return false;
+                    }
+                    if(e.originalEvent.wheelDelta === 120) {
+                        self.scrollToPosition('up');
                         e.preventDefault();
                         return false;
                     }
