@@ -394,13 +394,13 @@
             }
 
             if(self.options.enableWheel) {
-                $(document).on('mousewheel', function(e){
-                    if(e.originalEvent.wheelDelta === -120) {
+                $(document).on('mousewheel DOMMouseScroll', function(e){
+                    if(e.originalEvent.wheelDelta === -120 || e.originalEvent.detail > 0) {
                         self.scrollToPosition('down');
                         e.preventDefault();
                         return false;
                     }
-                    if(e.originalEvent.wheelDelta === 120) {
+                    if(e.originalEvent.wheelDelta === 120 || e.originalEvent.detail < 0) {
                         self.scrollToPosition('up');
                         e.preventDefault();
                         return false;
