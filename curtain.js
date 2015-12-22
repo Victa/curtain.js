@@ -54,6 +54,8 @@
 
 
             self.webkit = (navigator.userAgent.indexOf('Chrome') > -1 || navigator.userAgent.indexOf("Safari") > -1);
+            $.msie = /msie/.test(navigator.userAgent.toLowerCase()); 
+            $.mozilla = /firefox/.test(navigator.userAgent.toLowerCase()); 
             $.Android = (navigator.userAgent.match(/Android/i));
             $.iPhone = ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)));
             $.iPad = ((navigator.userAgent.match(/iPad/i)));
